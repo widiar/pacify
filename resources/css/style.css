@@ -1,0 +1,463 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    width: 100vw;
+    position: fixed;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* NAV BAR */
+
+.app-bar {
+    padding: 8px 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.app-bar .app-bar__menu {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transition: all 0.3s;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+    left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 13px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+#hamburgerButton {
+    width: 44px;
+    height: 44px;
+}
+
+/* NEW */
+/* JUMBOTRON */
+.jumbotron {
+    background: linear-gradient(
+        193.24deg,
+        #b5fffc 2.65%,
+        #f2c7e9 63.96%,
+        #ffa9d2 121.45%
+    );
+    margin: 20px auto;
+    width: 85%;
+    height: 80vh;
+    border-radius: 40px;
+    display: flex;
+    padding: 80px;
+}
+.imageJumbotron {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.imageJumbotron img {
+    width: 560.57px;
+    left: 312px;
+    top: 127px;
+}
+.textJumbotron {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    color: #212933;
+}
+
+.imageJumbotron,
+.textJumbotron {
+    margin: auto;
+}
+.textJumbotron {
+    margin-left: 0;
+}
+.imageJumbotron {
+    margin-top: -40px;
+}
+.textJumbotron h1 {
+    width: 570px;
+    height: 192px;
+    /* left: 980px;
+    top: 317px; */
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 82px;
+    line-height: 88px;
+}
+
+.textJumbotron p {
+    width: 440px;
+    height: 58px;
+    /* left: 980px;
+    top: 499px; */
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 20px;
+}
+
+.jumbotron .textJumbotron button {
+    font-family: "Montserrat", sans-serif;
+    /* font-weight: bold;
+    letter-spacing: 1px;
+    
+    background-color: #212933;
+    border-radius: 16px;
+    border: none;
+     */
+    border: none;
+    color: white;
+    padding: 10px 23px;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    background-color: #212933;
+    height: 51px;
+    width: 121px;
+    /* left: 720px;
+    top: 617px; */
+    border-radius: 11px;
+
+    width: 121px;
+    height: 51px;
+    /* left: 980px;
+    top: 587px; */
+}
+
+.mottoContainer {
+    margin: 150px auto;
+    width: 75%;
+    border: 20px solid #b4c8da;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.quotes {
+    margin: -50px auto;
+    background-color: white;
+    height: 50px;
+    width: 150px;
+    text-align: center;
+}
+.textQuotes {
+    text-align: center;
+    width: 892px;
+    margin: 80px auto 40px;
+    /* margin-top: 80px; */
+}
+.textQuotes p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+}
+.textQuotes .quoteWriter {
+    font-size: 25px;
+}
+
+/* NEWS SECTION */
+.newsContainer {
+    /* position: absolute; */
+    width: 100%;
+    height: 794px;
+    padding: 80px;
+    /* left: 0px;
+    top: 1624px; */
+
+    background: #303841;
+}
+.newsContainer .headingNews {
+    /* position: absolute; */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.418);
+    margin: auto;
+    width: 1320px;
+    /* top: 100px;
+    left: 270px; */
+    padding-bottom: 20px;
+}
+
+.newsContainer .headingNews h3 {
+    /* position: absolute; */
+    width: 395.41px;
+    height: 36px;
+    left: 212.29px;
+    top: 85px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 35px;
+    /* identical to box height, or 89% */
+
+    letter-spacing: 0.04em;
+
+    color: #ffffff;
+}
+
+.newsContainer .headingNews p {
+    /* position: absolute; */
+    width: 708.98px;
+    height: 52px;
+    left: 212.29px;
+    top: 148px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 60px;
+    /* or 177% */
+    letter-spacing: 0.04em;
+    color: #ffffff;
+}
+
+.newsContainer .listNews {
+    margin: 70px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 1320px;
+}
+.newsContainer .listNews .news {
+    width: 400px;
+}
+.newsContainer .listNews .news img {
+    width: 100%;
+    border-radius: 10px;
+}
+.newsContainer .listNews .news p {
+    font-style: normal;
+    font-weight: 700;
+    color: #e77979;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.newsContainer .listNews .news .newsTitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+    margin-top: 20px;
+    line-height: 35px;
+}
+
+/* DIARY SECTION */
+.diaryContainer {
+    /* position: relative; */
+    width: 80%;
+    height: 794px;
+    padding: 80px;
+    margin: 100px auto;
+}
+
+.diaryContainer .headingDiary {
+    /* position: absolute; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.418);
+    margin: auto;
+    width: 1320px;
+    /* top: 100px;
+    left: 270px; */
+    padding-bottom: 20px;
+}
+
+.diaryContainer .headingDiary h3 {
+    width: 395.41px;
+    height: 36px;
+    left: 212.29px;
+    top: 85px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 35px;
+    /* identical to box height, or 89% */
+
+    letter-spacing: 0.04em;
+}
+
+.diaryContainer .headingDiary p {
+    width: 708.98px;
+    height: 52px;
+    left: 212.29px;
+    top: 148px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 60px;
+    /* or 177% */
+    letter-spacing: 0.04em;
+}
+.diaryContainer .contentDiary {
+    width: 100%;
+    margin: auto;
+}
+.diaryContainer .contentDiary form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.diaryContainer .contentDiary textarea {
+    height: 530px;
+    padding: 30px;
+    box-shadow: 9px 9px 22px 3px rgba(1, 10, 92, 0.1);
+    border-radius: 10px;
+}
+.diaryContainer .contentDiary form input {
+    width: 100px;
+    align-self: flex-end;
+    margin-top: 50px;
+}
+
+/* .diaryContainer form textarea{
+    width: 1085px;
+    height: 530px;
+    margin: 70px 210px;
+    width: 1320px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    box-shadow: 9px 9px 22px 3px rgba(1, 10, 92, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+} */
+.diaryContainer textarea::placeholder {
+    font-size: 30px;
+    font-family: "Montserrat";
+}
+
+.diaryContainer .contentDiary form input {
+    border: none;
+    color: white;
+    padding: 10px 23px;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: rgb(33, 41, 51);
+    border-radius: 11px;
+    width: 121px;
+    height: 51px;
+}
+
+/* BAD DAY SECTION */
+.badDay {
+    width: 80%;
+    height: 593px;
+    margin: 300px auto 100px;
+    background-color: #010812;
+    border-radius: 38px;
+    padding: 80px;
+    display: flex;
+}
+.badDay .imgBadDay img {
+    width: 446px;
+    left: 192px;
+    margin: 80px;
+    margin-right: 0;
+    box-shadow: inset 0px 4px 250px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.badDay .contentBadDay {
+    margin: 80px;
+    color: #ffffff;
+}
+.badDay .contentBadDay h3 {
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 0.04em;
+}
+
+.badDay .contentBadDay p {
+    margin-top: 30px;
+    font-size: 20px;
+    line-height: 35px;
+    letter-spacing: 0.04em;
+}
+
+.badDay .contentBadDay button {
+    margin-top: 30px;
+    background: #ffffff;
+    border-radius: 11px;
+    width: 128.4px;
+    height: 54px;
+    border: none;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #000000;
+}
+
+footer {
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid rgba(71, 69, 69, 0.274);
+    padding: 50px;
+}
+
+footer p {
+    text-align: center;
+}
