@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capstone Project</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
+
 <body>
     <header>
         <div class="app-bar">
@@ -56,7 +58,7 @@
             </div>
             <div class="listNews">
                 <div class="news">
-                    <img src="../img/article-1.jpg" alt="article picture">
+                    <img src="{{ asset('img/article-1') }}" alt="article picture">
                     <p>24 Nov 2021</p>
                     <p class="newsTitle">7 Alasan penggunaan masalah yang ada di masyarakat sekitar</p>
                 </div>
@@ -79,8 +81,7 @@
             </div>
             <div class="contentDiary">
                 <form action="">
-                    <textarea class="textDiary" name="diary" id="textDiary" cols="30" rows="10" 
-                    maxlength="200" minlength="3" placeholder="Grateful things or rough times to tell"></textarea>
+                    <textarea class="textDiary" name="diary" id="textDiary" cols="30" rows="10" maxlength="200" minlength="3" placeholder="Grateful things or rough times to tell"></textarea>
                     <input type="submit" value="submit">
                 </form>
             </div>
@@ -100,4 +101,5 @@
         <p>© Pacify 2021. All rights reserved </p>
     </footer>
 </body>
+
 </html>
