@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* NAV BAR SECTION */
+.app-bar {
+    padding: 8px 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.app-bar .app-bar__menu {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transition: all 0.3s;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+    left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 13px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+#hamburgerButton {
+    width: 44px;
+    height: 44px;
+}
+
+/* MAIN SECTION */
+section {
+    position: relative;
+    min-height: 100vh;
+    background: cadetblue;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    transition: 0.5s;
+}
+section.active {
+    background: rgb(44, 43, 43);
+}
+
+section .container {
+    margin: auto;
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: white;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+section .container .user {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+section .container .user .imgBox {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+section .container .user .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section .container .user .formBox {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    transition: 0.5s;
+}
+
+section .container .user .formBox h2 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+section .container .user .formBox input {
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #333;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 14px;
+    margin: 8px 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+section .container .user .formBox input[type="submit"] {
+    max-width: 100px;
+    background: #677eff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+section .container .user.registerBox .formBox input[type="submit"] {
+    background-color: rgb(231, 59, 59);
+}
+
+section .container .user .formBox .signup {
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #555;
+    font-weight: 300;
+}
+
+section .container .user .formBox .signup a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #4b579c;
+}
+
+/* .registerBox{
+    display: none;
+} */
+
+section .container .registerBox {
+    pointer-events: none;
+}
+
+section .container.active .registerBox {
+    pointer-events: initial;
+}
+
+section .container .registerBox .formBox {
+    top: 100%;
+}
+section .container.active .registerBox .formBox {
+    top: 0;
+}
+section .container .registerBox .imgBox {
+    top: -100%;
+    transition: 0.5s;
+}
+section .container.active .registerBox .imgBox {
+    top: 0;
+}
+
+/* afterclick */
+section .container .signinBox .formBox {
+    top: 0;
+}
+section .container.active .signinBox .formBox {
+    top: 100%;
+}
+section .container .signinBox .imgBox {
+    top: 0;
+    transition: 0.5s;
+}
+section .container.active .signinBox .imgBox {
+    top: -100%;
+}
+
+@media screen and (max-width: 990px) {
+    section .container {
+        max-width: 400px;
+    }
+    section .container .imgBox {
+        display: none;
+    }
+    section .container .user .formBox {
+        width: 100%;
+    }
+}

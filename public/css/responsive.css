@@ -1,0 +1,68 @@
+/* NAVBAR */
+
+@media screen and (min-width: 650px) {
+    .app-bar {
+        grid-template-columns: 1fr auto;
+        padding: 8px 32px;
+    }
+
+    .app-bar .app-bar__brand {
+        margin-left: 25%;
+    }
+
+    .app-bar .app-bar__menu {
+        display: none;
+    }
+
+    .app-bar .app-bar__navigation {
+        position: static;
+        margin-right: 250px;
+        width: 100%;
+    }
+
+    .app-bar .app-bar__navigation ul li {
+        display: inline-block;
+    }
+
+    .app-bar .app-bar__navigation ul li a {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
+        margin: 0;
+    }
+    .app-bar .app-bar__navigation .loginButton {
+        font-family: "Montserrat", sans-serif;
+        /* font-weight: bold;
+        letter-spacing: 1px;
+        
+        background-color: #212933;
+        border-radius: 16px;
+        border: none;
+        */
+        border: none;
+        color: white;
+        padding: 10px 23px;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        background-color: #212933;
+        border-radius: 11px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+}
+
+@media screen and (min-width: 850px) {
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1600px) {
+}
