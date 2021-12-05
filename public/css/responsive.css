@@ -1,6 +1,169 @@
 /* NAVBAR */
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 320px) {
+    .chatButton {
+        width: 45px;
+        height: 45px;
+    }
+    .chatButton img {
+        width: 25px;
+    }
+
+    /* NAVBAR */
+    .app-bar__brand img {
+        height: 20px;
+    }
+    /* JUMBOTRON */
+    .jumbotron {
+        margin-top: 0px;
+        padding: 20px;
+        width: 100%;
+        border-radius: 0;
+        height: auto;
+        padding: 80px 20px;
+    }
+    /* .imageJumbotron img {
+        display: none;
+    } */
+    .textJumbotron {
+        width: 100%;
+    }
+    .textJumbotron h1 {
+        width: 100%;
+        font-size: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .textJumbotron p {
+        margin: 40px auto;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .textJumbotron button {
+        margin: auto;
+    }
+
+    /* QUOTES */
+    .mottoContainer {
+        margin: 80px auto;
+        width: 100%;
+        border: none;
+        padding: 30px;
+    }
+    .textQuotes {
+        width: 100%;
+    }
+    .textQuotes p {
+        font-size: 20px;
+    }
+    .textQuotes .quoteWriter {
+        font-size: 20px;
+    }
+
+    /* NEWS SECTION */
+    .newsContainer {
+        padding: 20px;
+        height: auto;
+    }
+    .newsContainer .headingNews {
+        width: 100%;
+    }
+    .newsContainer .headingNews h3 {
+        width: 100%;
+        font-size: 26px;
+    }
+    .newsContainer .headingNews p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 30px;
+        margin: 10px auto 0px;
+    }
+    .newsContainer .listNews {
+        margin-top: 50px;
+        width: 100%;
+        flex-direction: column;
+    }
+    .newsContainer .listNews .news {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .newsContainer .listNews .news p {
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .newsContainer .listNews .news .newsTitle {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-weight: 500;
+    }
+
+    /* DIARY SECTION */
+    .diaryContainer {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+    .diaryContainer .headingDiary {
+        width: 100%;
+    }
+    .diaryContainer .headingDiary h3 {
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .diaryContainer .headingDiary p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+    .diaryContainer textarea {
+        font-size: 16px;
+    }
+    .diaryContainer textarea::placeholder {
+        font-size: 16px;
+    }
+
+    /* BAD DAY SECTION */
+    .badDay {
+        width: 100%;
+        border-radius: 0;
+        margin: 100px auto 40px;
+        padding: 30px;
+    }
+    /* .badDay .imgBadDay img {
+        display: none;
+    } */
+    .badDay .contentBadDay {
+        width: 100%;
+        margin: 0;
+    }
+    .badDay .contentBadDay h3 {
+        font-size: 28px;
+    }
+    .badDay .contentBadDay p {
+        font-size: 18px;
+    }
+
+    /* FOOTER SECTION */
+    footer {
+        padding: 30px 0px;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    .chatButton {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* NAVBAR SECTION */
+    .app-bar__brand img {
+        height: 30px;
+    }
     .app-bar {
         grid-template-columns: 1fr auto;
         padding: 8px 32px;
@@ -16,7 +179,7 @@
 
     .app-bar .app-bar__navigation {
         position: static;
-        margin-right: 250px;
+        /* margin-right: 250px; */
         width: 100%;
     }
 
@@ -53,16 +216,165 @@
         background-color: #212933;
         border-radius: 11px;
     }
+
+    /* NEWS SECTION */
+    .newsContainer {
+        padding: 60px;
+    }
+    .newsContainer .listNews .news img {
+        width: 80%;
+    }
+    .newsContainer .listNews .news .newsTitle {
+        width: 80%;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    /* DIARY SECTION */
+    .diaryContainer {
+        padding: 70px;
+    }
+    .badDay {
+        padding: 70px;
+        height: auto;
+    }
 }
 
 @media screen and (min-width: 800px) {
+    /* NEWS SECTION */
+    .newsContainer {
+        padding: 80px;
+    }
+
+    /* DIARY SECTION */
+    .diaryContainer {
+        padding: 80px;
+    }
+    /* BAD DAY SECTION */
+    .badDay {
+        padding: 80px;
+        height: auto;
+    }
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (max-width: 1079px) {
+    .badDay .imgBadDay img {
+        display: none;
+    }
 }
+@media screen and (min-width: 1080px) {
+    .app-bar .app-bar__navigation {
+        margin-right: 80px;
+    }
+    .chatButton {
+        width: 60px;
+        height: 60px;
+    }
+    .chatButton img {
+        width: 30px;
+    }
 
+    /* MOTTO SECTION */
+    .mottoContainer {
+        width: 85%;
+        border: 20px solid #b4c8da;
+    }
+    .newsContainer .listNews {
+        flex-direction: row;
+    }
+
+    /* BAD DAY SECTION */
+    .badDay .imgBadDay {
+        width: 100%;
+    }
+    .badDay .imgBadDay img {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 1199px) {
+    .jumbotron .imageJumbotron img {
+        display: none;
+    }
+}
 @media screen and (min-width: 1200px) {
+    /* JUMBOTRON SECTION */
+    .jumbotron {
+        width: 85%;
+        height: 80vh;
+        border-radius: 40px;
+        padding: 50px;
+    }
+    .textJumbotron {
+        margin-left: 20px;
+    }
+    .textJumbotron h1 {
+        font-size: 55px;
+        font-weight: 600;
+        line-height: 60px;
+        text-align: left;
+    }
+    .textJumbotron p {
+        text-align: left;
+        width: 80%;
+        margin: 40px 0;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .textJumbotron button {
+        margin: 0;
+    }
+
+    /* MOTTO SECTION */
+    .mottoContainer {
+        margin: 200px auto;
+    }
+
+    .badDay {
+        width: 85%;
+        border-radius: 18px;
+    }
+    .badDay .contentBadDay {
+        margin: auto;
+    }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1460px) {
+    .jumbotron {
+        padding: 140px 200px;
+    }
+    .imageJumbotron {
+        margin-right: 30px;
+    }
+    .imageJumbotron img {
+        margin-top: -80px;
+    }
+    .textJumbotron h1 {
+        font-size: 82px;
+        line-height: 88px;
+        font-weight: 700;
+    }
+    .textJumbotron p {
+        font-size: 24px;
+        line-height: 29px;
+    }
+    .textQuotes {
+        width: 80%;
+    }
+    .textQuotes p {
+        font-size: 30px;
+        line-height: 42px;
+    }
+    .textQuotes .quoteWriter {
+        font-size: 25px;
+    }
+    .newsContainer {
+        padding: 140px;
+    }
+    .diaryContainer {
+        padding: 140px;
+    }
+    .badDay .contentBadDay p {
+        font-size: 20px;
+        width: 90%;
+    }
 }

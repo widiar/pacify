@@ -7,15 +7,21 @@
     scroll-behavior: smooth;
 }
 
-html,
-body {
-    width: 100vw;
-    position: fixed;
-}
 body {
     font-family: "Montserrat", sans-serif;
 }
-
+.chatButton {
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: #010812;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
 /* NAV BAR */
 
 .app-bar {
@@ -98,9 +104,7 @@ body {
     justify-content: center;
 }
 .imageJumbotron img {
-    width: 560.57px;
-    left: 312px;
-    top: 127px;
+    max-width: 560.57px;
 }
 .textJumbotron {
     display: flex;
@@ -117,12 +121,11 @@ body {
 .textJumbotron {
     margin-left: 0;
 }
-.imageJumbotron {
+/* .imageJumbotron {
     margin-top: -40px;
-}
+} */
 .textJumbotron h1 {
     width: 570px;
-    height: 192px;
     /* left: 980px;
     top: 317px; */
 
@@ -135,7 +138,6 @@ body {
 
 .textJumbotron p {
     width: 440px;
-    height: 58px;
     /* left: 980px;
     top: 499px; */
 
@@ -173,11 +175,6 @@ body {
     /* left: 720px;
     top: 617px; */
     border-radius: 11px;
-
-    width: 121px;
-    height: 51px;
-    /* left: 980px;
-    top: 587px; */
 }
 
 .mottoContainer {
@@ -364,19 +361,6 @@ body {
     align-self: flex-end;
     margin-top: 50px;
 }
-
-/* .diaryContainer form textarea{
-    width: 1085px;
-    height: 530px;
-    margin: 70px 210px;
-    width: 1320px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    box-shadow: 9px 9px 22px 3px rgba(1, 10, 92, 0.1);
-    border-radius: 10px;
-    padding: 30px;
-} */
 .diaryContainer textarea::placeholder {
     font-size: 30px;
     font-family: "Montserrat";
@@ -411,8 +395,6 @@ body {
 }
 .badDay .imgBadDay img {
     width: 446px;
-    left: 192px;
-    margin: 80px;
     margin-right: 0;
     box-shadow: inset 0px 4px 250px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
