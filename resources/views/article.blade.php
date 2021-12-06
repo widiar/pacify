@@ -4,6 +4,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/article.css') }}">
+<link rel="stylesheet" href="{{ asset('css/responsive-article.css') }}">
 @endsection
 
 @section('main-content')

@@ -7,7 +7,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     @yield('css')
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/responsive-index.css') }}" />
     <script>
         function openChat(url) {
                 window.location = url;
