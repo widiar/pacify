@@ -13,9 +13,16 @@
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#">Article</a></li>
                 <li><a href="#">Diary</a></li>
+                @auth
+                <a href="{{ route('logout') }}">
+                    <button class="loginButton" style="cursor: pointer">Logout</button>
+                </a>
+                @endauth
+                @guest
                 <a href="{{ route('login') }}">
                     <button class="loginButton" style="cursor: pointer">Login</button>
                 </a>
+                @endguest
                 <!-- <li><a href="#" id="loginButton" class="loginButton">Login</a></li> -->
             </ul>
         </nav>
