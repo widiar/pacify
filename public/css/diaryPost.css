@@ -10,7 +10,6 @@
 body {
     font-family: "Montserrat", sans-serif;
 }
-/* CHAT BUTTON */
 
 .chatButton {
     width: 70px;
@@ -24,7 +23,6 @@ body {
     border-radius: 50%;
     cursor: pointer;
 }
-
 /* NAV BAR */
 
 .app-bar {
@@ -94,122 +92,83 @@ body {
 .articleContainer h1 {
     font-family: Montserrat;
     font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 59px;
+    /* identical to box height */
+    letter-spacing: 0.04em;
     color: #212933;
     margin-bottom: 10px;
 }
 .articleContainer p {
+    width: 775px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
+    font-size: 20px;
+    line-height: 175.4%;
+    /* or 42px */
+    letter-spacing: 0.045em;
     color: #212933;
     margin-bottom: 50px;
-    margin-top: 50px;
 }
 .articleContainer .date {
     font-family: Montserrat;
     font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.04em;
     color: #f14b4b;
     margin-bottom: 40px;
 }
 .articleContainer img {
     width: 722px;
     border-radius: 6px;
-}
-.articleContainer a {
-    text-decoration: none;
-    color: #212933;
-    font-size: 14px;
-    line-height: 175.4%;
-    font-weight: bold;
+    margin-bottom: 40px;
 }
 
-/* NEWS SECTION */
-.newsContainer {
-    /* position: absolute; */
-    width: 100%;
-    height: 794px;
-    padding: 80px;
-    /* left: 0px;
-    top: 1624px; */
-    margin-bottom: 90px;
-    background: #303841;
+/* MAIN SECTION */
+.diaryPostContainer {
+    width: 70%;
+    margin: 80px auto;
 }
-.newsContainer .headingNews {
-    /* position: absolute; */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.418);
-    margin: auto;
-    width: 1320px;
-    /* top: 100px;
-    left: 270px; */
-    padding-bottom: 20px;
-}
-
-.newsContainer .headingNews h3 {
-    /* position: absolute; */
-    width: 395.41px;
-    height: 36px;
-    left: 212.29px;
-    top: 85px;
-
+.diaryPostContainer h1 {
+    text-align: center;
+    font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 35px;
-    /* identical to box height, or 89% */
-
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 59px;
+    margin-top: 80px;
+    /* identical to box height */
     letter-spacing: 0.04em;
-
-    color: #ffffff;
+    color: #76bae0;
+}
+.diaryPostContainer .contentDiaryPost h2 {
+    margin: 50px auto;
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 59px;
+    /* identical to box height */
+    letter-spacing: 0.04em;
+    color: #212933;
 }
 
-.newsContainer .headingNews p {
-    /* position: absolute; */
-    width: 708.98px;
-    height: 52px;
-    left: 212.29px;
-    top: 148px;
-
+.diaryPostContainer .contentDiaryPost p {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
-    line-height: 60px;
-    /* or 177% */
-    letter-spacing: 0.04em;
-    color: #ffffff;
-}
-
-.newsContainer .listNews {
-    margin: 70px auto;
-    display: flex;
-    justify-content: space-between;
-    width: 1320px;
-}
-.newsContainer .listNews .news {
-    width: 400px;
-}
-.newsContainer .listNews .news img {
-    width: 100%;
-    border-radius: 10px;
-}
-.newsContainer .listNews .news p {
-    font-style: normal;
-    font-weight: 700;
-    color: #e77979;
-    letter-spacing: 1px;
-    margin-top: 10px;
-}
-
-.newsContainer .listNews .news .newsTitle {
-    text-decoration: none;
-    font-style: normal;
-    font-weight: 600;
     font-size: 24px;
-    color: white;
-    margin-top: 20px;
-    line-height: 35px;
+    line-height: 175.4%;
+    /* or 42px */
+    letter-spacing: 0.045em;
+    color: #212933;
+    margin-bottom: 50px;
 }
-
 /* FOOTER SECTION */
 footer {
     width: 80%;
@@ -220,4 +179,11 @@ footer {
 
 footer p {
     text-align: center;
+}
+
+@media screen and (min-width: 1200px) {
+    .diaryPostContainer .contentDiaryPost p {
+        width: 80%;
+        margin: 50px auto;
+    }
 }

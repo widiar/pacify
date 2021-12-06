@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Capstone Project</title>
         <link rel="stylesheet" href="../../public/css/style.css" />
-        <link rel="stylesheet" href="../../public/css/responsive.css" />
+        <link rel="stylesheet" href="../../public/css/responsive-index.css" />
         <script>
             function openChat(url) {
                 window.location = url;
@@ -14,7 +14,7 @@
 
     <body>
         <button class="chatButton" onclick="openChat('../template/chat.html')">
-            <img src="../../public/img/chatButton.png" alt="" />
+            <img src="../../public/img/chatButton.png" alt="button chat" />
         </button>
         <header>
             <div class="app-bar">
@@ -27,8 +27,8 @@
                 <nav id="navigationDrawer" class="app-bar__navigation">
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Article</a></li>
-                        <li><a href="#">Diary</a></li>
+                        <li><a href="#newsContainer">Article</a></li>
+                        <li><a href="diaryStorage.html">Diary</a></li>
                         <button class="loginButton">Login</button>
                         <!-- <li><a href="#" id="loginButton" class="loginButton">Login</a></li> -->
                     </ul>
@@ -66,7 +66,7 @@
                     <p class="quoteWriter">Albus Dumbledore</p>
                 </div>
             </div>
-            <div class="newsContainer">
+            <div class="newsContainer" id="newsContainer">
                 <div class="headingNews">
                     <h3>What's New?</h3>
                     <p>
@@ -80,20 +80,26 @@
                             alt="article picture"
                         />
                         <p>24 Nov 2021</p>
-                        <p class="newsTitle">
+                        <a href="#" class="newsTitle">
                             7 Alasan penggunaan masalah yang ada di masyarakat
                             sekitar
-                        </p>
+                        </a>
                     </div>
                     <div class="news">
                         <img src="../../public/img/article-2.jpg" alt="article picture" />
                         <p>24 Nov 2021</p>
-                        <p class="newsTitle">7 Alasan penggunaan masalah</p>
+                        <a href="#" class="newsTitle">
+                            7 Alasan penggunaan masalah yang ada di masyarakat
+                            sekitar
+                        </a>
                     </div>
                     <div class="news">
                         <img src="../../public/img/article-3.jpg" alt="article picture" />
                         <p>24 Nov 2021</p>
-                        <p class="newsTitle">7 Alasan penggunaan masalah</p>
+                        <a href="#" class="newsTitle">
+                            7 Alasan penggunaan masalah yang ada di masyarakat
+                            sekitar
+                        </a>
                     </div>
                 </div>
             </div>

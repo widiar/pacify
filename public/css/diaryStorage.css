@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.chatButton {
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: #010812;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* NAV BAR */
+
+.app-bar {
+    padding: 8px 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.app-bar .app-bar__menu {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transition: all 0.3s;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+    left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 13px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+#hamburgerButton {
+    width: 44px;
+    height: 44px;
+}
+
+/* MAIN SECTION */
+.diaryStorageContainer h1 {
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 59px;
+    /* identical to box height */
+    letter-spacing: 0.04em;
+    color: #212933;
+    margin: 80px auto;
+}
+.diaryStorageContainer .diaryList .diaries {
+    width: 524px;
+    height: 484px;
+    background: #ffffff;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    box-sizing: border-box;
+    box-shadow: 9px 9px 22px 3px rgba(1, 10, 92, 0.1);
+    border-radius: 38px;
+    padding: 50px;
+    margin: 40px;
+}
+.diaryStorageContainer .diaryList {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.diaryStorageContainer .diaryList .diaries h2 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 175.4%;
+    /* identical to box height, or 53px */
+    letter-spacing: 0.045em;
+    color: #76bae0;
+}
+
+.diaryStorageContainer .diaryList .diaries p {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 175.4%;
+    /* or 42px */
+    letter-spacing: 0.045em;
+    color: #212933;
+}
+
+.diaryStorageContainer .diaryList .diaries a {
+    text-decoration: none;
+    color: #212933;
+    font-size: 24px;
+    line-height: 175.4%;
+    font-weight: bold;
+}
+
+/* FOOTER SECTION */
+footer {
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid rgba(71, 69, 69, 0.274);
+    padding: 50px;
+}
+
+footer p {
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media screen and (min-width: 320px) {
+    /* ARTICLE SECTION */
+    .diaryStorageContainer .diaryList {
+        width: 100%;
+    }
+    .diaryStorageContainer .diaryList .diaries h2 {
+        font-size: 24px;
+    }
+    .diaryStorageContainer .diaryList .diaries p {
+        font-size: 18px;
+        line-height: 40px;
+        color: #212933;
+        height: 75%;
+        overflow: hidden;
+    }
+    .diaryStorageContainer .diaryList .diaries a {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 780px) {
+    .diaryStorageContainer .diaryList {
+        width: 80%;
+    }
+    .diaryStorageContainer .diaryList .diaries h2 {
+        font-size: 30px;
+        line-height: 175.4%;
+        letter-spacing: 0.045em;
+    }
+
+    .diaryStorageContainer .diaryList .diaries p {
+        font-size: 24px;
+        line-height: 175.4%;
+        letter-spacing: 0.045em;
+    }
+
+    .diaryStorageContainer .diaryList .diaries a {
+        font-size: 22px;
+        line-height: 175.4%;
+    }
+}
