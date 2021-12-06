@@ -1,0 +1,76 @@
+@media screen and (min-width: 320px) {
+    /* ARTICLE SECTION */
+    .articleContainer {
+        width: 100%;
+        margin-top: 30px;
+        padding: 20px;
+    }
+    .articleContainer h1 {
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+    .articleContainer .date {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+    .articleContainer img {
+        width: 100%;
+    }
+    .articleContainer p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    /* ARTICLE SECTION */
+    .articleContainer {
+        padding: 60px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    /* NEWS SECTION */
+    .newsContainer {
+        padding: 80px;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .articleContainer {
+        padding: 80px 130px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .articleContainer {
+        width: 80%;
+        padding: 130px;
+    }
+    .articleContainer h1 {
+        font-size: 48px;
+        font-weight: 800;
+        line-height: 59px;
+        letter-spacing: 0.04em;
+    }
+    .articleContainer p {
+        font-size: 20px;
+        line-height: 175.4%;
+        letter-spacing: 0.045em;
+        max-width: 800px;
+    }
+    .articleContainer .date {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 29px;
+        letter-spacing: 0.04em;
+    }
+    .articleContainer img {
+        width: 700px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .newsContainer {
+        padding: 140px;
+    }
+}

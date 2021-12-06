@@ -285,6 +285,7 @@ body {
 }
 
 .newsContainer .listNews .news .newsTitle {
+    text-decoration: none;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;

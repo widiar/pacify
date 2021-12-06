@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no>
     <title>Article</title>
     <link rel="stylesheet" href="../../public/css/article.css">
-    <link rel="stylesheet" href="../../public/css/responsive.css">
+    <link rel="stylesheet" href="../../public/css/responsive-index.css">
+    <link rel="stylesheet" href="../../public/css/responsive-article.css">
     <script>
         function openChat(url){
             window.location = url;
@@ -14,7 +15,9 @@
     </script>
 </head>
 <body>
-    <button class="chatButton" onclick="openChat('chat.html')"><img src="../../public/img/chatButton.png" alt=""></button>
+    <button class="chatButton" onclick="openChat('../template/chat.html')">
+        <img src="../../public/img/chatButton.png" alt="button chat" />
+    </button>
     <header>
         <div class="app-bar">
             <div class="app-bar__menu">
@@ -25,9 +28,9 @@
             </div>
             <nav id="navigationDrawer" class="app-bar__navigation">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Article</a></li>
-                    <li><a href="#">Diary</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#newsContainer">Article</a></li>
+                    <li><a href="diaryStorage.html">Diary</a></li>
                     <button class="loginButton">Login</button>
                     <!-- <li><a href="#" id="loginButton" class="loginButton">Login</a></li> -->
                 </ul>
@@ -63,7 +66,7 @@
                 It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
             </p>
         </div>
-        <div class="newsContainer">
+        <div class="newsContainer" id="newsContainer">
             <div class="headingNews">
                 <h3>What's New?</h3>
                 <p>All things that might helps you get through a hard time</p>
@@ -72,17 +75,26 @@
                 <div class="news">
                     <img src="../../public/img/article-1.jpg" alt="article picture">
                     <p>24 Nov 2021</p>
-                    <p class="newsTitle">7 Alasan penggunaan masalah yang ada di masyarakat sekitar</p>
+                    <a href="#" class="newsTitle">
+                        7 Alasan penggunaan masalah yang ada di masyarakat
+                        sekitar
+                    </a>
                 </div>
                 <div class="news">
                     <img src="../../public/img/article-2.jpg" alt="article picture">
                     <p>24 Nov 2021</p>
-                    <p class="newsTitle">7 Alasan penggunaan masalah</p>
+                    <a href="#" class="newsTitle">
+                        7 Alasan penggunaan masalah yang ada di masyarakat
+                        sekitar
+                    </a>
                 </div>
                 <div class="news">
                     <img src="../../public/img/article-3.jpg" alt="article picture">
                     <p>24 Nov 2021</p>
-                    <p class="newsTitle">7 Alasan penggunaan masalah</p>
+                    <a href="#" class="newsTitle">
+                        7 Alasan penggunaan masalah yang ada di masyarakat
+                        sekitar
+                    </a>
                 </div>
             </div>
         </div>
