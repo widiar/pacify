@@ -1,0 +1,150 @@
+@media screen and (min-width: 320px) {
+    /* .chatMenu {
+        display: none;
+    } */
+    h1 {
+        margin: 20px auto 0;
+        color: #212933;
+    }
+    .chatContainer {
+        width: 100%;
+        flex-direction: column;
+    }
+    .chatContainer .chatMenu {
+        width: 85%;
+        margin: 30px auto;
+    }
+    .chatContainer .chatMenu .search input {
+        width: 100%;
+    }
+    .chatContainer .chatMenu .listContacts {
+        padding: 10px;
+        width: 100%;
+    }
+    .chatContainer .chatMenu .listContacts .contact {
+        padding: 10px;
+        color: #212933;
+    }
+    .chatContainer .chatMenu .listContacts .contact img {
+        width: 55px;
+        height: 55px;
+    }
+    .chatContainer .chatMenu .listContacts .contact .contactPersonal h2 {
+        font-size: 20px;
+    }
+    .chatContainer .chatMenu .listContacts .contact .contactPersonal p {
+        font-size: 14px;
+    }
+
+    /* CONTENT CHAT */
+    .chatContainer .contentChat {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    .chatContainer .contentChat .nameChat {
+        padding: 0 20px;
+        margin: 0 auto 30px;
+        width: fit-content;
+        border-bottom: 1px solid rgba(71, 69, 69, 0.103);
+    }
+    .chatContainer .contentChat .nameChat h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: #212933;
+    }
+    .chatContainer .contentChat .chatIncomeContainer {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+    .chatContainer .contentChat .chatIncomeContainer img {
+        width: 55px;
+        height: 55px;
+        margin-right: 10px;
+    }
+    .chatContainer .contentChat .chatIncomeContainer .chatIncome p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .chatContainer .contentChat .chatOutcomeContainer {
+        margin-left: 30%;
+        max-width: 80%;
+        margin-bottom: 30px;
+    }
+    .chatContainer .contentChat .chatOutcomeContainer .chatOutcome p {
+        line-height: 20px;
+    }
+    .chatContainer .contentChat .chatType {
+        width: 100%;
+        margin: auto;
+    }
+    .chatContainer .contentChat .chatType .contentChatType {
+        display: flex;
+        justify-content: center;
+    }
+    .chatContainer .contentChat .chatType .contentChatType input {
+        width: 75%;
+        background: #eeecf4;
+        border-radius: 65px;
+        border: 1px solid rgba(71, 69, 69, 0.103);
+        padding: 20px;
+        margin-right: 10px;
+    }
+    .chatContainer .contentChat .chatType .contentChatType input::placeholder {
+        font-size: 14px;
+        font-family: "Montserrat";
+    }
+    .chatContainer .contentChat .chatType .contentChatType button {
+        background: #081440;
+        width: fit-content;
+        border: none;
+        padding: 16px;
+        border-radius: 50%;
+        margin: auto 10px;
+        color: white;
+    }
+    .chatContainer .contentChat .chatType .contentChatType button i {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    .chatContainer .chatMenu .search input {
+        width: 70%;
+    }
+    .chatContainer .chatMenu .listContacts {
+        width: 70%;
+    }
+    .chatContainer .contentChat {
+        width: 80%;
+        margin: 30px auto;
+    }
+}
+@media screen and (min-width: 1080px) {
+    .chatContainer .chatMenu .search input {
+        width: 50%;
+    }
+    .chatContainer .chatMenu .listContacts {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .chatContainer {
+        flex-direction: row;
+        width: 80%;
+        margin: 30px auto;
+    }
+    .chatContainer .chatMenu {
+        width: 40%;
+        margin: 30px auto;
+    }
+    .chatContainer .chatMenu .search input {
+        width: 80%;
+    }
+    .chatContainer .chatMenu .listContacts {
+        width: 80%;
+    }
+}

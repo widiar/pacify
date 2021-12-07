@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* NAV BAR */
+
+.app-bar {
+    padding: 8px 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.app-bar .app-bar__menu {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transition: all 0.3s;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+    left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 13px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+#hamburgerButton {
+    width: 44px;
+    height: 44px;
+}
+
+/* MAIN SECTION */
+/* SEARCH */
+h1 {
+    width: 80%;
+    margin: 70px auto;
+}
+.chatContainer {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+}
+
+.chatContainer .chatMenu {
+    width: 30%;
+}
+
+.chatContainer .chatMenu .search input {
+    width: 90%;
+    font-size: 18px;
+    margin-bottom: 30px;
+    padding: 20px;
+    height: 58px;
+    background: rgba(244, 244, 244, 0.56);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-sizing: border-box;
+    border-radius: 36px;
+}
+.chatContainer .chatMenu .search input::placeholder {
+    font-size: 18px;
+    font-family: "Montserrat";
+}
+
+.chatContainer .chatMenu .listContacts {
+    width: 90%;
+    padding: 20px;
+    background: rgba(243, 242, 255, 0.28);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-sizing: border-box;
+    border-radius: 36px;
+}
+.chatContainer .chatMenu .listContacts .contact {
+    display: flex;
+    padding: 15px 20px;
+}
+
+.chatContainer .chatMenu .listContacts .contact .contactPersonal {
+    margin: auto 20px;
+    width: 80%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(109, 106, 106, 0.192);
+}
+.chatContainer .chatMenu .listContacts .contact .contactPersonal h2 {
+    margin-bottom: 6px;
+}
+
+.chatContainer .chatMenu .listContacts .contact img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.chatContainer .contentChat {
+    padding: 30px;
+    width: 70%;
+    background: rgba(243, 242, 255, 0.28);
+    border: 2px solid rgba(0, 0, 0, 0.07);
+    box-sizing: border-box;
+    border-radius: 36px;
+}
+.chatContainer .contentChat .chatIncomeContainer {
+    display: flex;
+    width: 50%;
+    /* padding: 0 10px; */
+    /* padding-bottom: 0; */
+}
+.chatContainer .contentChat .chatIncomeContainer .chats {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.chatContainer .contentChat .chatIncomeContainer .chats .chatIncome {
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.chatContainer .contentChat .chatIncomeContainer img {
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.chatContainer .contentChat .chatIncomeContainer .chatIncome {
+    background: #fcfdff;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.072) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    /* filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.185)); */
+    height: fit-content;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.chatContainer .contentChat .chatOutcomeContainer {
+    max-width: 50%;
+    width: fit-content;
+    margin-left: 50%;
+    float: right;
+    justify-content: right;
+    padding: 20px 30px 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    background: #010812;
+}
+.chatContainer .contentChat .chatOutcomeContainer .chatOutcome p {
+    color: white;
+}
+
+/* FOOTER SECTION */
+footer {
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid rgba(71, 69, 69, 0.274);
+    padding: 50px;
+}
+
+footer p {
+    text-align: center;
+}

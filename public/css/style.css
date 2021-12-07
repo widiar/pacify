@@ -368,6 +368,7 @@ body {
 }
 
 .diaryContainer .contentDiary form input {
+    cursor: pointer;
     border: none;
     color: white;
     padding: 10px 23px;

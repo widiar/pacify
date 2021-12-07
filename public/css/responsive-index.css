@@ -340,7 +340,7 @@
 
 @media screen and (min-width: 1460px) {
     .jumbotron {
-        padding: 140px 200px;
+        padding: 140px 150px;
     }
     .imageJumbotron {
         margin-right: 30px;
@@ -349,8 +349,8 @@
         margin-top: -80px;
     }
     .textJumbotron h1 {
-        font-size: 82px;
-        line-height: 88px;
+        font-size: 72px;
+        line-height: 78px;
         font-weight: 700;
     }
     .textJumbotron p {
@@ -376,5 +376,11 @@
     .badDay .contentBadDay p {
         font-size: 20px;
         width: 90%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .jumbotron {
+        padding: 140px 200px;
     }
 }
