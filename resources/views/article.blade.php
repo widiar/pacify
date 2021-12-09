@@ -12,7 +12,7 @@
     <div class="articleContainer">
         <h1>{{ $data->judul }}</h1>
         <p class="date">{{ date('j F Y', strtotime($data->updated_at)) }}</p>
-        <img src="{{ Storage::url('article/') . $data->gambar }}" alt="Article Image">
+        <img src="{{ json_decode($data->gambar)->url }}" alt="Article Image">
         <br>
         <a href="#">{{ $data->keterangan_gambar }}</a>
         <br>

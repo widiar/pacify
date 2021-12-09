@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use ImageKit\ImageKit;
 
 class ArticleController extends Controller
 {
+    private function imagekit()
+    {
+        return new ImageKit(
+            env('IMAGE_KIT_PUBLIC_KEY'),
+            env('IMAGE_KIT_SECRET_KEY'),
+            env('IMAGE_KIT_ENDPOINT')
+        );
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,14 +55,22 @@ class ArticleController extends Controller
             'slug' => 'required|unique:articles,slug'
         ]);
         $poster = $request->poster;
+        $imageKit = $this->imagekit();
+        $uploadFile = $imageKit->upload([
+            'file' => fopen($poster->getPathname(), "r"),
+            'fileName' => $poster->hashName(),
+            'folder' => "pacify//article//"
+        ]);
         Article::create([
             'judul' => $request->title,
-            'gambar' => $poster->hashName(),
+            'gambar' => json_encode([
+                'field' => $uploadFile->success->fileId,
+                'url' =>  $uploadFile->success->url
+            ]),
             'keterangan_gambar' => $request->ket_gambar,
             'konten' => $request->content,
             'slug' => $request->slug
         ]);
-        $poster->storeAs('public/article', $poster->hashName());
         return redirect()->route('admin.article.index')->with('success', 'Berhasil menambah artikel');
     }
 
@@ -97,9 +114,17 @@ class ArticleController extends Controller
         $data = Article::find($id);
         $img = $request->file('poster');
         if ($img) {
-            Storage::disk('public')->delete('article/' . $data->gambar);
-            $img->storeAs('public/article', $img->hashName());
-            $data->gambar = $img->hashName();
+            $imageKit = $this->imagekit();
+            $uploadFile = $imageKit->upload([
+                'file' => fopen($img->getPathname(), "r"),
+                'fileName' => $img->hashName(),
+                'folder' => "pandan-sari//water-sport//"
+            ]);
+            $imageKit->deleteFile(json_decode($data->gambar)->field);
+            $data->gambar = json_encode([
+                'field' => $uploadFile->success->fileId,
+                'url' =>  $uploadFile->success->url
+            ]);
         }
         $data->judul = $request->title;
         $data->keterangan_gambar = $request->ket_gambar;
@@ -118,7 +143,8 @@ class ArticleController extends Controller
     {
         try {
             $data = Article::find($id);
-            Storage::disk('public')->delete('article/' . $data->gambar);
+            $imageKit = $this->imagekit();
+            $imageKit->deleteFile(json_decode($data->gambar)->field);
             $data->delete();
             return response()->json('Success');
         } catch (\Throwable $th) {

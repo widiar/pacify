@@ -8,7 +8,7 @@
     <div class="listNews">
         @foreach ($articles as $article)
         <div class="news">
-            <img src="{{ Storage::url('article/') . $article->gambar }}" alt="article picture" />
+            <img src="{{ json_decode($article->gambar)->url  }}" alt="article picture" />
             <p>{{ date('j M Y', strtotime($article->updated_at)) }}</p>
             <a href="{{ route('article', $article->slug) }}" style="text-decoration: none" class="newsTitle">
                 {{ $article->judul }}
