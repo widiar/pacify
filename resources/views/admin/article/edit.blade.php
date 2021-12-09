@@ -17,6 +17,14 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="slug">Slug</label>
+                <input type="text" name="slug" readonly class="form-control  @error('slug') is-invalid @enderror"
+                    value="{{ old('slug', $data->slug) }}">
+                @error('slug')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="poster">Poster</label>
                 <div class="custom-file">
                     <input type="file" name="poster"

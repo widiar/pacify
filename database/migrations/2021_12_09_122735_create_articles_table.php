@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('gambar');
             $table->string('keterangan_gambar')->nullable();
             $table->longText('konten');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

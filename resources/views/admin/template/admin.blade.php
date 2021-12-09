@@ -149,6 +149,8 @@
 
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
+    <script src="{{ asset('js/admin.js') }}"></script>
+
     <script>
         $("#adminTable").dataTable({
             // paging: false,

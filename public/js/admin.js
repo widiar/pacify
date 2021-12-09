@@ -21,18 +21,20 @@ $(document).ready(function(){
                   url: $(form).attr("action"),
                   method: "DELETE",
                   dataType: "json",
-                  success: function(data){
-                      if (data == "Sukses"){
-                        Swal.fire(
-                            'Deleted!',
-                            'The data has been deleted.',
-                            'success'
-                          ).then((result) => {
-                              if (result.isConfirmed) window.location.href = "";
-                          }) 
-                      }else{
-                        Swal.fire("Oops", "Something Wrong!", "error");
-                      }
+                  success: function(res){
+                    Swal.fire({
+                      title: 'Deleted!',
+                      text: `The data has been deleted.`,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      timer: 1500
+                    }).then((result) => {
+                        window.location.href = "";
+                    })
+                  },
+                  error: (res) => {
+                    console.log(res.responseJSON)
+                    Swal.fire("Oops", "Something Wrong!", "error");
                   }
               })
             }

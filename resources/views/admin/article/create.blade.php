@@ -16,6 +16,14 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="slug">Slug</label>
+                <input type="text" name="slug" required class="form-control  @error('slug') is-invalid @enderror"
+                    value="{{ old('slug') }}">
+                @error('slug')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="poster">Poster</label>
                 <div class="custom-file">
                     <input type="file" name="poster" required
@@ -55,5 +63,10 @@
 @section('script')
 <script>
     CKEDITOR.replace('content');
+    $('input[name="title"]').keyup(function(){
+        const value = $(this).val()
+        const slug = value.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
+        $('input[name="slug"]').val(slug)
+    })
 </script>
 @endsection

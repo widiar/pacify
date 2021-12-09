@@ -42,14 +42,16 @@ class ArticleController extends Controller
             'title' => 'required',
             'poster' => 'required|image|mimes:png,jpeg|max:5120',
             'ket_gambar' => '',
-            'content' => 'required'
+            'content' => 'required',
+            'slug' => 'required|unique:articles,slug'
         ]);
         $poster = $request->poster;
         Article::create([
             'judul' => $request->title,
             'gambar' => $poster->hashName(),
             'keterangan_gambar' => $request->ket_gambar,
-            'konten' => $request->content
+            'konten' => $request->content,
+            'slug' => $request->slug
         ]);
         $poster->storeAs('public/article', $poster->hashName());
         return redirect()->route('admin.article.index')->with('success', 'Berhasil menambah artikel');
@@ -114,6 +116,13 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $data = Article::find($id);
+            Storage::disk('public')->delete('article/' . $data->gambar);
+            $data->delete();
+            return response()->json('Success');
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage(), 500);
+        }
     }
 }
