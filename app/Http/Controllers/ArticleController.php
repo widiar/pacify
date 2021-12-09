@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -51,7 +52,7 @@ class ArticleController extends Controller
             'konten' => $request->content
         ]);
         $poster->storeAs('public/article', $poster->hashName());
-        return redirect()->route('admin.article.index')->with('success', 'Berhasil menambah berita');
+        return redirect()->route('admin.article.index')->with('success', 'Berhasil menambah artikel');
     }
 
     /**
@@ -62,7 +63,6 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -73,7 +73,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Article::find($id);
+        return view('admin.article.edit', compact('data'));
     }
 
     /**
@@ -85,7 +86,24 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'poster' => 'image|mimes:png,jpeg|max:5120',
+            'ket_gambar' => '',
+            'content' => 'required'
+        ]);
+        $data = Article::find($id);
+        $img = $request->file('poster');
+        if ($img) {
+            Storage::disk('public')->delete('article/' . $data->gambar);
+            $img->storeAs('public/article', $img->hashName());
+            $data->gambar = $img->hashName();
+        }
+        $data->judul = $request->title;
+        $data->keterangan_gambar = $request->ket_gambar;
+        $data->konten = $request->content;
+        $data->save();
+        return redirect()->route('admin.article.index')->with('success', 'Berhasil update artikel');
     }
 
     /**
