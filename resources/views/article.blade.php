@@ -10,44 +10,13 @@
 @section('main-content')
 <main>
     <div class="articleContainer">
-        <h1>Lorem Ipsum is simply dummy </h1>
-        <p class="date">24 November 2021</p>
-        <img src="{{ asset('img/article-1.jpg') }}" alt="Article Image">
+        <h1>{{ $article->judul }}</h1>
+        <p class="date">{{ date('j F Y', strtotime($article->updated_at)) }}</p>
+        <img src="{{ Storage::url('article/') . $article->gambar }}" alt="Article Image">
         <br>
-        <a href="https://www.freepik.com/photos/woman">Woman photo created by rawpixel.com - www.freepik.com</a>
+        <a href="#">{{ $article->keterangan_gambar }}</a>
         <br>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard
-            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged.
-        </p>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard
-            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged.
-        </p>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard
-            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged.
-        </p>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard
-            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged.
-        </p>
+        {!! $article->konten !!}
     </div>
     <div class="newsContainer">
         <div class="headingNews">
