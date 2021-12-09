@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +41,19 @@ Route::get('diary/user/123124', function () {
 Route::get('chat', function () {
     return view('chat');
 })->name('chat');
+
+//admin
+Route::get('admin/login', function () {
+    return view('admin.login');
+})->name('admin.login');
+Route::post('admin/login', [AdminController::class, 'login']);
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::prefix('admin/')->group(function () {
+        Route::name('admin.')->group(function () {
+            Route::get('dashboard', function () {
+                return view('admin.dashboard');
+            })->name('dashboard');
+            Route::resource('article', ArticleController::class);
+        });
+    });
+});
