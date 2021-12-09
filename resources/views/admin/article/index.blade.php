@@ -38,8 +38,8 @@
                 @foreach ($data as $dt)
                 <tr>
                     <td>{{ ++$no }}</td>
-                    <td>{{ $dt->title }}</td>
-                    <td class="text-center">
+                    <td>{{ $dt->judul }}</td>
+                    <td>
                         {{ date('d/m/y h:i A', strtotime($dt->updated_at)) }}
                     </td>
                     <td class="text-center">

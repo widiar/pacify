@@ -21,5 +21,5 @@
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'Subscript,Superscript,About';
+	config.removeButtons = 'Subscript,Superscript,About,Image';
 };

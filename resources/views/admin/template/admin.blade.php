@@ -33,10 +33,9 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     {{-- DataTables --}}
-    {{--
+
     <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}"> --}}
-    <link rel="stylesheet" href="{{ asset('plugins/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 
@@ -133,7 +132,7 @@
     <!-- overlayScrollbars -->
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('js/adminlte.js') }}"></script>
+    <script src="{{ asset('js/adminlte.min.js') }}"></script>
 
     <script src="{{ asset('plugins/select2/js/select2.min.js') }}"></script>
 

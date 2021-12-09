@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -13,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('admin.article.index');
+        $data = Article::all();
+        return view('admin.article.index', compact('data'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.article.create');
     }
 
     /**
@@ -34,7 +36,22 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'title' => 'required',
+            'poster' => 'required|image|mimes:png,jpeg|max:5120',
+            'ket_gambar' => '',
+            'content' => 'required'
+        ]);
+        $poster = $request->poster;
+        Article::create([
+            'judul' => $request->title,
+            'gambar' => $poster->hashName(),
+            'keterangan_gambar' => $request->ket_gambar,
+            'konten' => $request->content
+        ]);
+        $poster->storeAs('public/article', $poster->hashName());
+        return redirect()->route('admin.article.index')->with('success', 'Berhasil menambah berita');
     }
 
     /**
