@@ -28,3 +28,14 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('article', function () {
     return view('article');
 })->name('article');
+Route::get('diaries', function () {
+    return view('diaryList');
+})->name('diaries');
+
+Route::get('diary/user/123124', function () {
+    return view('diary');
+})->name('diary');
+
+Route::get('chat', function () {
+    return view('chat');
+})->name('chat');

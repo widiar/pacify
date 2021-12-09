@@ -12,7 +12,7 @@
             <ul>
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#">Article</a></li>
-                <li><a href="#">Diary</a></li>
+                <li><a href="{{ route('diaries') }}">Diary</a></li>
                 @auth
                 <a href="{{ route('logout') }}">
                     <button class="loginButton" style="cursor: pointer">Logout</button>

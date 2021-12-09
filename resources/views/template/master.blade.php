@@ -16,9 +16,11 @@
 </head>
 
 <body>
-    <button class="chatButton">
-        <img src="{{ asset('img/chatButton.png') }}" alt="" />
-    </button>
+    <a href="{{ route('chat') }}">
+        <button class="chatButton">
+            <img src="{{ asset('img/chatButton.png') }}" alt="" />
+        </button>
+    </a>
 
     @include('template.header')
 
