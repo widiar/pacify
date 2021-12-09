@@ -21,33 +21,7 @@
             <p class="quoteWriter">Albus Dumbledore</p>
         </div>
     </div>
-    <div class="newsContainer">
-        <div class="headingNews">
-            <h3>What's New?</h3>
-            <p>
-                All things that might helps you get through a hard time
-            </p>
-        </div>
-        <div class="listNews">
-            @foreach ($articles as $article)
-            <div class="news">
-                <img src="{{ Storage::url('article/') . $article->gambar }}" alt="article picture" />
-                <p>{{ date('j M Y', strtotime($article->updated_at)) }}</p>
-                <a href="{{ route('article', $article->slug) }}" style="text-decoration: none" class="newsTitle">
-                    {{ $article->judul }}
-                </a>
-            </div>
-            @endforeach
-            <div class="news">
-                <img src="{{ asset('img/article-1.jpg') }}" alt="article picture" />
-                <p>24 Nov 2021</p>
-                <a href="#" style="text-decoration: none" class="newsTitle">
-                    7 Alasan penggunaan masalah yang ada di masyarakat
-                    sekitar
-                </a>
-            </div>
-        </div>
-    </div>
+    @include('template.article')
     <div class="diaryContainer">
         <div class="headingDiary">
             <h3>What's New?</h3>

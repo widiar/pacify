@@ -15,7 +15,8 @@ class SiteController extends Controller
 
     public function article($slug)
     {
-        $article = Article::where('slug', $slug)->firstOrFail();
-        return view('article', compact('article'));
+        $data = Article::where('slug', $slug)->firstOrFail();
+        $articles = Article::orderBy('updated_at', 'desc')->where('slug', '!=', $slug)->take(3)->get();
+        return view('article', compact('data', 'articles'));
     }
 }
