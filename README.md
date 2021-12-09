@@ -36,4 +36,4 @@ Aplikasi untuk membantu user yang mengalami depresi atau masalah dengan kesehata
 
 ## Demo Sistem
 
--   [Cooming Soon](#)
+-   [Pacify](https://paciify.herokuapp.com/)
