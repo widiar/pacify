@@ -30,8 +30,8 @@
             </p>
         </div>
         <div class="contentDiary">
-            <form action="">
-                <textarea class="textDiary" name="diary" id="textDiary" cols="30" rows="10" maxlength="200"
+            <form action="{{ route('diary.post') }}" method="POST" id="formDiary">
+                <textarea class="textDiary" required name="diary" id="textDiary" cols="30" rows="10" maxlength="200"
                     minlength="3" placeholder="Grateful things or rough times to tell"></textarea>
                 <input type="submit" value="submit" />
             </form>
@@ -52,4 +52,43 @@
         </div>
     </div>
 </main>
+@endsection
+
+@section('script')
+<script>
+    $('#formDiary').submit(function(e){
+        e.preventDefault()
+        const urlLogin = `{{ route('login') }}`
+        $.ajax({
+            url: $(this).attr('action'),
+            method: $(this).attr('method'),
+            data: $(this).serialize(),
+            success: (res) => {
+                if(res == 'Login') {
+                    Swal.fire(
+                        'Login',
+                        'Mohon Login Terlebih Dahulu',
+                        'warning'
+                    ).then(result => {
+                        if(result.isConfirmed) window.location.href = urlLogin
+                    })
+                } else {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Berhasil nambah diary.`,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      timer: 1500
+                    }).then((result) => {
+                        $('#textDiary').val(null)
+                    })
+                }
+            },
+            error: (res) => {
+                console.log(res.responseJSON)
+                Swal.fire("Oops", "Something Wrong!", "error");
+            }
+        })
+    })
+</script>
 @endsection

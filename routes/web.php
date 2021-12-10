@@ -31,6 +31,8 @@ Route::get('diaries', function () {
     return view('diaryList');
 })->name('diaries');
 
+Route::post('diary', [SiteController::class, 'diaryPost'])->name('diary.post');
+
 Route::get('diary/user/123124', function () {
     return view('diary');
 })->name('diary');
