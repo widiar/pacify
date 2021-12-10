@@ -15,7 +15,7 @@ class CreateDiariesTable extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->longText('konten');
             $table->timestamps();
         });

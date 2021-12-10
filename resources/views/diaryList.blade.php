@@ -10,72 +10,17 @@
 <main>
     <div class="diaryStorageContainer">
         <h1>Look How Far You've Come!</h1>
+        @foreach ($diaries as $diary)
         <div class="diaryList">
             <div class="diaries">
-                <h2>16 Oct 2021</h2>
+                <h2>{{ date('j M Y', strtotime($diary->updated_at)) }}</h2>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
+                    {{ $diary->konten }}
                 </p>
-                <a href="{{ route('diary') }}">click for more</a>
-            </div>
-            <div class="diaries">
-                <h2>16 Oct 2021</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
-                </p>
-                <a href="#">click for more</a>
-            </div>
-            <div class="diaries">
-                <h2>16 Oct 2021</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
-                </p>
-                <a href="#">click for more</a>
-            </div>
-            <div class="diaries">
-                <h2>16 Oct 2021</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
-                </p>
-                <a href="#">click for more</a>
-            </div>
-            <div class="diaries">
-                <h2>16 Oct 2021</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
-                </p>
-                <a href="#">click for more</a>
-            </div>
-            <div class="diaries">
-                <h2>16 Oct 2021</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
-                </p>
-                <a href="#">click for more</a>
-            </div>
-            <div class="diaries">
-                <h2>16 Oct 2021</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
-                </p>
-                <a href="#">click for more</a>
-            </div>
-            <div class="diaries">
-                <h2>16 Oct 2021</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an...
-                </p>
-                <a href="#">click for more</a>
+                <a href="{{ route('diary', $diary->id) }}">click for more</a>
             </div>
         </div>
+        @endforeach
     </div>
 </main>
 @endsection

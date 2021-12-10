@@ -8,6 +8,11 @@
 
 @section('main-content')
 <main>
+    @if(session('login'))
+    <div class="alert-login" style="display: none;">
+        {{ session('login') }}
+    </div>
+    @endif
     <div class="mottoContainer">
         <div class="quotes">
             <h2>Quotes</h2>
@@ -31,8 +36,8 @@
         </div>
         <div class="contentDiary">
             <form action="{{ route('diary.post') }}" method="POST" id="formDiary">
-                <textarea class="textDiary" required name="diary" id="textDiary" cols="30" rows="10" maxlength="200"
-                    minlength="3" placeholder="Grateful things or rough times to tell"></textarea>
+                <textarea class="textDiary" required name="diary" id="textDiary" cols="30" rows="10" minlength="3"
+                    placeholder="Grateful things or rough times to tell"></textarea>
                 <input type="submit" value="submit" />
             </form>
         </div>
@@ -56,22 +61,29 @@
 
 @section('script')
 <script>
+    const urlLogin = `{{ route('login') }}`
+    const popUpLogin = () => {
+        Swal.fire(
+            'Login',
+            'Mohon Login Terlebih Dahulu',
+            'warning'
+        ).then(result => {
+            if(result.isConfirmed) window.location.href = urlLogin
+        })
+    }
+    const alertLogin = $('.alert-login').text()
+    if (alertLogin != '') {
+        popUpLogin()
+    }
     $('#formDiary').submit(function(e){
         e.preventDefault()
-        const urlLogin = `{{ route('login') }}`
         $.ajax({
             url: $(this).attr('action'),
             method: $(this).attr('method'),
             data: $(this).serialize(),
             success: (res) => {
                 if(res == 'Login') {
-                    Swal.fire(
-                        'Login',
-                        'Mohon Login Terlebih Dahulu',
-                        'warning'
-                    ).then(result => {
-                        if(result.isConfirmed) window.location.href = urlLogin
-                    })
+                    popUpLogin()
                 } else {
                     Swal.fire({
                       title: 'Success!',
@@ -90,5 +102,6 @@
             }
         })
     })
+    // CKEDITOR.replace('textDiary')
 </script>
 @endsection
