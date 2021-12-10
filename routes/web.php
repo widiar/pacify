@@ -27,13 +27,12 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('article/{slug}', [SiteController::class, 'article'])->name('article');
-Route::get('diaries', function () {
-    return view('diaryList');
-})->name('diaries');
 
-Route::get('diary/user/123124', function () {
-    return view('diary');
-})->name('diary');
+Route::get('diaries', [SiteController::class, 'diary'])->name('diaries');
+
+Route::post('diary', [SiteController::class, 'diaryPost'])->name('diary.post');
+
+Route::get('diary/{id}', [SiteController::class, 'diaryUser'])->name('diary');
 
 Route::get('chat', function () {
     return view('chat');
