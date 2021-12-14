@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ChatCreated;
 use App\Models\Chat;
 use App\Models\Room;
 use App\Models\User;
@@ -97,46 +98,31 @@ class ChatController extends Controller
         try {
             $room = Room::where('nama', $request->nama)->first();
             $room->load('chat');
+            $chats = $room->chat;
             $userId = Auth::user()->id;
-            if ($room->user1 == $userId) $id = $room->user2;
-            else $id = $room->user1;
-
-            //load chatnya, itudah pokoknya
 
 
             return response()->json([
-                'room' => $room->id,
-                'id' => $id
+                'room' => $room,
+                'chats' => $chats,
+                'userId' => $userId
             ]);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage(), 500);
         }
     }
 
-    public function listen(Request $request)
-    {
-        $chat = Chat::where([
-            ['room_id', $request->roomId],
-            ['user_id', $request->userId],
-            ['updated_at', '>', $request->waktu]
-        ])->get();
-        return response()->json([
-            'chat' => $chat,
-            'uId' => $request->userId,
-            'w' => $request->waktu
-        ]);
-    }
-
     public function post(Request $request)
     {
         try {
             $userId = Auth::user()->id;
-            Chat::create([
+            $chat = Chat::create([
                 'room_id' => $request->roomId,
                 'body' => $request->msg,
                 'user_id' => $userId
             ]);
-            return response()->json('Submitted');
+            ChatCreated::dispatch($chat);
+            return response()->json($chat);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage(), 500);
         }
@@ -144,10 +130,16 @@ class ChatController extends Controller
 
     public function dev()
     {
-        $r = Room::where('updated_at', '>', '2021-12-14 9:5:4')->first();
-        dd($r);
-        $c = new DateTime($r->updated_at);
+        // $r = Room::where('updated_at', '>', '2021-12-14 9:5:4')->first();
+        // dd($r);
+        // $c = new DateTime($r->updated_at);
         $d = new DateTime('2021-12-14 9:5:4');
-        dd($d, $c);
+        ChatCreated::dispatch('Lorem ipsum');
+        dd($d);
+    }
+
+    public function dev2()
+    {
+        return view('welcome');
     }
 }

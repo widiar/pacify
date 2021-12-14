@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Room;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('chat.{roomName}', function ($user, $roomName) {
+    // return (int) $user->id === (int) $id;
+    $room = Room::where('nama', $roomName)->first();
+    if ($user->id == $room->user1 || $user->id == $room->user2) return true;
+    return false;
 });
