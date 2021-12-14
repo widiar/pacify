@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,9 +35,14 @@ Route::post('diary', [SiteController::class, 'diaryPost'])->name('diary.post');
 
 Route::get('diary/{id}', [SiteController::class, 'diaryUser'])->name('diary');
 
-Route::get('chat', function () {
-    return view('chat');
-})->name('chat');
+Route::get('chat', [ChatController::class, 'index'])->name('chat');
+Route::post('findChat', [ChatController::class, 'search'])->name('chat.search');
+Route::post('showChat', [ChatController::class, 'show'])->name('show.chat');
+Route::post('listenChat', [ChatController::class, 'listen'])->name('listen.chat');
+Route::post('postChat', [ChatController::class, 'post'])->name('post.chat');
+
+Route::get('dev', [ChatController::class, 'dev']);
+Route::get('dev2', [ChatController::class, 'dev2']);
 
 //admin
 Route::get('admin/login', function () {
