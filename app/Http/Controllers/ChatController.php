@@ -127,19 +127,4 @@ class ChatController extends Controller
             return response()->json($th->getMessage(), 500);
         }
     }
-
-    public function dev()
-    {
-        // $r = Room::where('updated_at', '>', '2021-12-14 9:5:4')->first();
-        // dd($r);
-        // $c = new DateTime($r->updated_at);
-        $d = new DateTime('2021-12-14 9:5:4');
-        ChatCreated::dispatch('Lorem ipsum');
-        dd($d);
-    }
-
-    public function dev2()
-    {
-        return view('welcome');
-    }
 }
