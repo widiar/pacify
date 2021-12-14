@@ -15,7 +15,8 @@ class AddColumnChatToTableUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('need_chat')->nullable();
-            $table->boolean('found_chat')->nullable();
+            $table->unsignedBigInteger('found_chat')->nullable();
+            $table->boolean('is_searching')->nullable();
         });
     }
 
@@ -27,7 +28,7 @@ class AddColumnChatToTableUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['need_chat', 'found_chat']);
+            $table->dropColumn(['need_chat', 'found_chat', 'is_searching']);
         });
     }
 }

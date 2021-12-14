@@ -37,6 +37,11 @@ Route::get('diary/{id}', [SiteController::class, 'diaryUser'])->name('diary');
 
 Route::get('chat', [ChatController::class, 'index'])->name('chat');
 Route::post('findChat', [ChatController::class, 'search'])->name('chat.search');
+Route::post('showChat', [ChatController::class, 'show'])->name('show.chat');
+Route::post('listenChat', [ChatController::class, 'listen'])->name('listen.chat');
+Route::post('postChat', [ChatController::class, 'post'])->name('post.chat');
+
+Route::get('dev', [ChatController::class, 'dev']);
 
 //admin
 Route::get('admin/login', function () {
