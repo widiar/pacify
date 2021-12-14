@@ -41,8 +41,6 @@ Route::post('showChat', [ChatController::class, 'show'])->name('show.chat');
 Route::post('listenChat', [ChatController::class, 'listen'])->name('listen.chat');
 Route::post('postChat', [ChatController::class, 'post'])->name('post.chat');
 
-Route::get('dev', [ChatController::class, 'dev']);
-Route::get('dev2', [ChatController::class, 'dev2']);
 
 //admin
 Route::get('admin/login', function () {
