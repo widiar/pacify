@@ -33,7 +33,8 @@ class ChatController extends Controller
             $user2 = User::where([
                 ['id', '!=', $user->id],
                 ['need_chat', 1],
-                ['found_chat', NULL]
+                ['found_chat', NULL],
+                ['is_searching', 1]
             ])->first();
 
             if ($user2) {
