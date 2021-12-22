@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     @yield('css')
     <link rel="stylesheet" href="{{ asset('css/responsive-index.css') }}" />
-    <script>
-        function openChat(url) {
-                window.location = url;
-            }
-    </script>
 </head>
 
 <body>
@@ -46,7 +41,11 @@
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
             });
+            
         })
+        function toggleResponsive(){
+            document.getElementById("navigationDrawer").classList.toggle("active");
+        }
     </script>
 
     @yield('script')

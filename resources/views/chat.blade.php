@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="{{ asset('css/responsive-chat.css') }}" />
 
 <style>
-    .room:hover {
+    .room,
+    .btn-chat:hover {
         cursor: pointer;
     }
 </style>
@@ -15,61 +16,53 @@
 
 @section('main-content')
 <main>
-    <h1>Messages</h1>
-    <button class="btn btn-chat">Mulai Chat</button>
-    <div class="chatContainer">
+    <div class="emptysChat" style="text-align: center">
+        <h1 class="getStartedHeading">One click away from starting to have a conversation with others!</h1>
+        <button class="getStartedButton btn-chat">Get Started</button>
+    </div>
+    <div class="notemptychat">
+        <h1>Messages</h1>
+        <div class="chatContainer">
 
-        <div class="chatMenu">
-            <div class="search">
-                <input type="text" placeholder="Search">
-            </div>
-            <div class="listContacts">
-                @foreach ($rooms as $room)
-                <div class="contact">
-                    <img src="{{ asset('img/contact-1.jpg') }}" alt="Profile Picture Chat">
-                    <div class="contactPersonal">
-                        <h2 class="room" data-nama="{{{ $room->nama }}}">{{ $room->nama }}</h2>
+            <div class="chatMenu">
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="listContacts">
+                    @foreach ($rooms as $room)
+                    <div class="contact">
+                        <img src="{{ asset('img/contact-1.jpg') }}" alt="Profile Picture Chat">
+                        <div class="contactPersonal">
+                            <h2 class="room" data-nama="{{{ $room->nama }}}">{{ $room->nama }}</h2>
+                        </div>
                     </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="contentChat emptyChat">
-            <div class="nameChat">
-                <h2>Thomas</h2>
-            </div>
-            <div class="chatIncomeContainer">
-                <div class="chatIncome">
-                    <p>Hi there, How are you?</p>
+                    @endforeach
                 </div>
             </div>
-            <div class="chatOutcomeContainer">
-                <div class="chatOutcome">
-                    <p>Not really good tho. And you?</p>
+            <div class="contentChat emptyChat">
+                <h3 class="chatEmpty" style="margin-bottom: 50px;">Whoops! click any chat to begin. Or Start New Chat
+                </h3>
+                <div style="text-align: center">
+                    <button class="getStartedButton btn-chat" style="margin-bottom: 200px;">Start Chat</button>
                 </div>
             </div>
-            <div class="chatIncomeContainer">
-                <div class="chatIncome">
-                    <p>Hi there, How are you?</p>
+            <div class="contentChat roomChat" style="display: none">
+                <div class="nameChat">
+                    <h2>Thomas</h2>
                 </div>
-            </div>
-        </div>
-        <div class="contentChat roomChat" style="display: none">
-            <div class="nameChat">
-                <h2>Thomas</h2>
-            </div>
 
-            <div class="kontenChat">
+                <div class="chat">
 
-            </div>
+                </div>
 
-            <div class="chatType">
-                <form action="" class="chatForm" data-id="" method="POST">
-                    <div class="contentChatType">
-                        <input name="message" type="text" id="msg" placeholder="Type a message">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </form>
+                <div class="chatType">
+                    <form action="" class="chatForm" data-id="" method="POST">
+                        <div class="contentChatType">
+                            <input name="message" type="text" id="msg" placeholder="Type a message">
+                            <button type="submit" id="btn-submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -79,6 +72,7 @@
 @section('script')
 <script>
     const urlSearch = `{{ route('chat.search') }}`
+    const cRoom = `{{ $hitungRoom }}`
     let cari
 
     const listen = (idRoom) => {
@@ -89,11 +83,17 @@
                         <p>${res.chat.body}</p>
                     </div>
                 </div>`
-            $('.kontenChat').append(html)
+            $('.chat').append(html)
         })
     }
     $(document).ready(() => {
-        
+        if(cRoom > 0) {
+            $('.notemptychat').show()
+            $('.emptysChat').hide()
+        } else {
+            $('.notemptychat').hide()
+            $('.emptysChat').show()
+        }
     })
     const search = () => {
         $.ajax({
@@ -112,6 +112,8 @@
                     </div>
                     `
                     $('.listContacts').append(html)
+                    $('.notemptychat').show()
+                    $('.emptysChat').hide()
                 }
             },
             error: (res) => {
@@ -135,7 +137,7 @@
             },
             success: (res) => {
                 $('.chatForm').data('id', res.room.id)
-                $('.kontenChat').html('')
+                $('.chat').html('')
                 res.chats.forEach((chat) => {
                     let html = '';
                     if(res.userId == chat.user_id) {
@@ -153,9 +155,18 @@
                             </div>
                         </div>`
                     }
-                    $('.kontenChat').append(html)
+                    $('.chat').append(html)
                 })
                 listen(res.room.nama)
+                if(res.room.is_disabled == true) {
+                    $('#msg').attr('disabled', 'disabled')
+                    $('#msg').attr('placeholder', 'You can\'t chat with this person again.')
+                    $('#btn-submit').attr('disabled', 'disabled')
+                }else{
+                    $('#msg').removeAttr('disabled')
+                    $('#msg').attr('placeholder', 'Type a message')
+                    $('#btn-submit').removeAttr('disabled')
+                }
             },
             error: (res) => {
                 console.log(res.responseJSON)
@@ -190,7 +201,7 @@
                             <p>${res.body}</p>
                         </div>
                     </div>`
-                $('.kontenChat').append(html)
+                $('.chat').append(html)
                 $('#msg').val(null)
             },
             error: (res) => {

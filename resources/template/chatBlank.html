@@ -1,90 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
-    <link rel="stylesheet" href="../../public/css/chat.css">
-    <link rel="stylesheet" href="../../public/css/responsive-index.css">
-    <link rel="stylesheet" href="../../public/css/responsive-chat.css">
-    <script src="https://kit.fontawesome.com/23966b100c.js" crossorigin="anonymous"></script>
-    <script>
-        function toggleResponsive(){
-            document.getElementById("navigationDrawer").classList.toggle("active");
-        }
-    </script>
-</head>
-<body>
-    <header>
-        <div class="app-bar">
-            <div class="app-bar__menu" id="hamburger-button">
-                <button id="hamburgerButton" onclick="toggleResponsive()">☰</button>
-            </div>
-            <div class="app-bar__brand">
-                <img src="../../public/img/pacify-logo.png" alt="Logo Pacify">
-            </div>
-            <nav id="navigationDrawer" class="app-bar__navigation">
-                <ul id="main-nav">
-                    <li><a href="index.html" onclick="toggleResponsive()">Home</a></li>
-                    <li><a href="index.html#newsContainer" onclick="toggleResponsive()">Article</a></li>
-                    <li><a href="diaryStorage.html" onclick="toggleResponsive()">Diary</a></li>
-                    <li><button class="loginButton" onclick="toggleResponsive()">Login</button></li>
-                    <!-- <li><a href="#" id="loginButton" class="loginButton">Login</a></li> -->
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Messages</h1>
-        <div class="chatContainer">
-            
-            <div class="chatMenu">
-                <div class="search">
-                    <input type="text" placeholder="Search">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chat</title>
+        <link rel="stylesheet" href="../../public/css/chat.css" />
+        <link rel="stylesheet" href="../../public/css/responsive-index.css" />
+        <link rel="stylesheet" href="../../public/css/responsive-chat.css" />
+        <script
+            src="https://kit.fontawesome.com/23966b100c.js"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            function toggleResponsive() {
+                document
+                    .getElementById("navigationDrawer")
+                    .classList.toggle("active");
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <div class="app-bar">
+                <div class="app-bar__menu" id="hamburger-button">
+                    <button id="hamburgerButton" onclick="toggleResponsive()">
+                        ☰
+                    </button>
                 </div>
-                <div class="listContacts">
-                    <div class="contact">
-                        <img src="../../public/img/contact-1.jpg" alt="Profile Picture Chat">
-                        <div class="contactPersonal">
-                            <h2>Thomas</h2>
-                            <p>Hi there, how are you?</p>
-                        </div>
+                <div class="app-bar__brand">
+                    <img
+                        src="../../public/img/pacify-logo.png"
+                        alt="Logo Pacify"
+                    />
+                </div>
+                <nav id="navigationDrawer" class="app-bar__navigation">
+                    <ul id="main-nav">
+                        <li>
+                            <a href="index.html" onclick="toggleResponsive()"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="index.html#newsContainer"
+                                onclick="toggleResponsive()"
+                                >Article</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="diaryStorage.html"
+                                onclick="toggleResponsive()"
+                                >Diary</a
+                            >
+                        </li>
+                        <li>
+                            <button
+                                class="loginButton"
+                                onclick="toggleResponsive()"
+                            >
+                                Login
+                            </button>
+                        </li>
+                        <!-- <li><a href="#" id="loginButton" class="loginButton">Login</a></li> -->
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Messages</h1>
+            <div class="chatContainer">
+                <div class="chatMenu">
+                    <div class="search">
+                        <input type="text" placeholder="Search" />
                     </div>
-                    <div class="contact">
-                        <img src="../../public/img/contact-2.jpg" alt="Profile Picture Chat">
-                        <div class="contactPersonal">
-                            <h2>Jessica</h2>
-                            <p>Hi there, how are you?</p>
+                    <div class="listContacts">
+                        <div class="contact">
+                            <img
+                                src="../../public/img/contact-1.jpg"
+                                alt="Profile Picture Chat"
+                            />
+                            <div class="contactPersonal">
+                                <h2>Thomas</h2>
+                                <p>Hi there, how are you?</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact">
-                        <img src="../../public/img/contact-3.jpg" alt="Profile Picture Chat">
-                        <div class="contactPersonal">
-                            <h2>Peter</h2>
-                            <p>Hi there, how are you?</p>
+                        <div class="contact">
+                            <img
+                                src="../../public/img/contact-2.jpg"
+                                alt="Profile Picture Chat"
+                            />
+                            <div class="contactPersonal">
+                                <h2>Jessica</h2>
+                                <p>Hi there, how are you?</p>
+                            </div>
+                        </div>
+                        <div class="contact">
+                            <img
+                                src="../../public/img/contact-3.jpg"
+                                alt="Profile Picture Chat"
+                            />
+                            <div class="contactPersonal">
+                                <h2>Peter</h2>
+                                <p>Hi there, how are you?</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="contentChat">
-                <h3 class="chatEmpty">Whoops! click any chat to begin.</h3>
-                
+                <div class="contentChat">
+                    <div class="chat">
+                        <h3 class="chatEmpty" style="margin-bottom: 50px;">Whoops! click any chat to begin.</h3>
+                        <button class="getStartedButton" style="margin-bottom: 200px;">Start Chat</button>
+                    </div>
 
-                <div class="chatType">
-                    <div class="contentChatType">
-                        <input type="text" placeholder="Type a message">
-                        <button><i class="fas fa-paper-plane"></i></button>
-                    </div>
+                    <div class="chatType">
+                        <div class="contentChatType">
+                            <input type="text" placeholder="Type a message" />
+                            <button><i class="fas fa-paper-plane"></i></button>
+                        </div>
                         <!-- <div class="submitChat">
                             <input type="submit" value="">
                         </div> -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <footer>
-        <p>© Pacify 2021. All rights reserved </p>
-    </footer>
-</body>
+        </main>
+        <footer>
+            <p>© Pacify 2021. All rights reserved</p>
+        </footer>
+    </body>
 </html>

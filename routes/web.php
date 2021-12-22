@@ -28,6 +28,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('article/{slug}', [SiteController::class, 'article'])->name('article');
+Route::get('articles', [SiteController::class, 'articleList'])->name('articles');
 
 Route::get('diaries', [SiteController::class, 'diary'])->name('diaries');
 

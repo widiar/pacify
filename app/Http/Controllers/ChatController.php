@@ -14,9 +14,32 @@ class ChatController extends Controller
 {
     public function index()
     {
+        if (!Auth::check()) {
+            return redirect()->route('home')->with('login', 'Perlu Login');
+        }
         $id = Auth::user()->id;
         $rooms = Room::where('user1', $id)->orWhere('user2', $id)->get();
-        return view('chat', compact('rooms'));
+        $rooms->load(['chat' => function ($q) {
+            $q->orderBy('updated_at', 'desc');
+        }]);
+
+        //load chatnya, cari chat nya yg paling akhir , cek created_at nya, jika lebih dari sehari disabled
+        foreach ($rooms as $room) {
+            $chat = $room->chat;
+            if ($chat->count() > 0) {
+                $now = new DateTime('now');
+                if ($now->diff($chat[0]->updated_at)->days >= 1) {
+                    $room->is_disabled = 1;
+                    $room->save();
+                }
+            }
+        }
+        // tambahin foreign key, di table chat, biar ketika room di delete chatnya otomatis ke delete.
+
+        // cek updated_at di room, jika lebih dari 3 hari, delete dia
+
+        $hitungRoom = $rooms->count();
+        return view('chat', compact('rooms', 'hitungRoom'));
     }
 
     public function search()

@@ -16,6 +16,12 @@ class SiteController extends Controller
         return view('home', compact('articles'));
     }
 
+    public function articleList()
+    {
+        $articles = Article::all();
+        return view('articleList', compact('articles'));
+    }
+
     public function article($slug)
     {
         $data = Article::where('slug', $slug)->firstOrFail();
