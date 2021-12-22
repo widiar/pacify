@@ -2,6 +2,18 @@
     /* .chatMenu {
         display: none;
     } */
+
+    /* BLANK */
+    .getStartedHeading {
+        font-size: 35px;
+        text-align: center;
+        margin: 100px auto 50px;
+        color: rgb(198, 201, 212);
+    }
+
+    .getStartedButton {
+        margin-bottom: 100px;
+    }
     h1 {
         margin: 20px auto 0;
         color: #212933;
@@ -111,6 +123,13 @@
 }
 
 @media screen and (min-width: 680px) {
+    .getStartedHeading {
+        font-size: 40px;
+        margin: 200px auto 50px;
+    }
+    .getStartedButton {
+        margin-bottom: 200px;
+    }
     .chatContainer .chatMenu .search input {
         width: 70%;
     }
@@ -129,6 +148,12 @@
     .chatContainer .chatMenu .listContacts {
         width: 50%;
     }
+    .getStartedHeading {
+        font-size: 50px;
+    }
+    .getStartedButton {
+        margin-bottom: 300px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -146,5 +171,8 @@
     }
     .chatContainer .chatMenu .listContacts {
         width: 80%;
+    }
+    .getStartedHeading {
+        font-size: 60px;
     }
 }

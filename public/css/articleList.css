@@ -10,6 +10,7 @@
 body {
     font-family: "Montserrat", sans-serif;
 }
+/* CHAT BUTTON */
 
 .chatButton {
     width: 70px;
@@ -84,67 +85,68 @@ body {
     height: 44px;
 }
 
-/* MAIN SECTION */
-.diaryStorageContainer h1 {
+/* ARTICLE */
+h1 {
     text-align: center;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 800;
-    font-size: 48px;
+
     line-height: 59px;
     /* identical to box height */
     letter-spacing: 0.04em;
-    color: #212933;
-    margin: 80px auto;
-}
-.diaryStorageContainer .diaryList .diaries {
-    width: 524px;
-    height: 484px;
-    background: #ffffff;
-    /* border: 1px solid rgba(0, 0, 0, 0.2); */
-    box-sizing: border-box;
-    box-shadow: 9px 9px 22px 3px rgba(1, 10, 92, 0.1);
-    border-radius: 38px;
-    padding: 50px;
-    margin: 40px;
-}
-.diaryStorageContainer .diaryList {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.diaryStorageContainer .diaryList .diaries h2 {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 175.4%;
-    /* identical to box height, or 53px */
-    letter-spacing: 0.045em;
     color: #76bae0;
 }
+.articleList {
+    margin: 100px auto;
+}
+.articleList .article {
+    width: 100%;
+    margin-bottom: 70px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(71, 69, 69, 0.137);
+}
+.articleList .article a {
+    display: flex;
+    text-decoration: none;
+}
+.articleList .article a img {
+    max-width: 400px;
+    margin-right: 40px;
+}
 
-.diaryStorageContainer .diaryList .diaries p {
+.articleList .article a .articleContent {
+    margin: auto;
+}
+.articleList .article a .articleContent h2 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 39px;
+    /* identical to box height */
+    letter-spacing: 0.04em;
+    color: #212933;
+}
+
+.articleList .article a .articleContent .date {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f05f5f;
+    letter-spacing: 1px;
+    margin: 5px 0 10px;
+}
+
+.articleList .article a .articleContent .content {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 175.4%;
     /* or 42px */
     letter-spacing: 0.045em;
     color: #212933;
-}
-
-.diaryStorageContainer .diaryList .diaries a {
-    text-decoration: none;
-    color: #212933;
-    font-size: 24px;
-    line-height: 175.4%;
-    font-weight: bold;
+    margin-bottom: 50px;
 }
 
 /* FOOTER SECTION */
@@ -157,48 +159,4 @@ footer {
 
 footer p {
     text-align: center;
-}
-
-/* RESPONSIVE */
-
-@media screen and (min-width: 320px) {
-    /* ARTICLE SECTION */
-    .diaryStorageContainer .diaryList {
-        width: 100%;
-    }
-    .diaryStorageContainer .diaryList .diaries h2 {
-        font-size: 24px;
-    }
-    .diaryStorageContainer .diaryList .diaries p {
-        font-size: 18px;
-        line-height: 40px;
-        color: #212933;
-        height: 75%;
-        overflow: hidden;
-    }
-    .diaryStorageContainer .diaryList .diaries a {
-        font-size: 18px;
-    }
-}
-
-@media screen and (min-width: 780px) {
-    .diaryStorageContainer .diaryList {
-        width: 80%;
-    }
-    .diaryStorageContainer .diaryList .diaries h2 {
-        font-size: 30px;
-        line-height: 175.4%;
-        letter-spacing: 0.045em;
-    }
-
-    .diaryStorageContainer .diaryList .diaries p {
-        font-size: 24px;
-        line-height: 175.4%;
-        letter-spacing: 0.045em;
-    }
-
-    .diaryStorageContainer .diaryList .diaries a {
-        font-size: 22px;
-        line-height: 175.4%;
-    }
 }

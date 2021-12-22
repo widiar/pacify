@@ -46,7 +46,7 @@ body {
 .app-bar .app-bar__navigation {
     position: absolute;
     top: 50px;
-    left: -180px;
+    left: -100%;
     width: 150px;
     transition: all 0.3s;
     padding: 8px;
@@ -72,6 +72,38 @@ body {
 }
 
 /* MAIN SECTION */
+/* BLANK */
+main {
+    display: flex;
+    flex-direction: column;
+}
+.getStartedHeading {
+    font-size: 50px;
+    text-align: center;
+    margin: 200px auto 50px;
+    color: rgb(198, 201, 212);
+}
+.getStartedButton {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    background-color: #212933;
+    height: 51px;
+    width: fit-content;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 300px;
+    border-radius: 11px;
+}
 /* SEARCH */
 h1 {
     width: 80%;
@@ -141,6 +173,16 @@ h1 {
     box-sizing: border-box;
     border-radius: 36px;
 }
+.chatContainer .contentChat .chatEmpty {
+    font-size: 20px;
+    text-align: center;
+    margin: 120px auto;
+    color: rgb(198, 201, 212);
+}
+.chatContainer .contentChat .chat {
+    display: flex;
+    flex-direction: column;
+}
 .chatContainer .contentChat .chatIncomeContainer {
     display: flex;
     width: 50%;
@@ -176,17 +218,23 @@ h1 {
     border-top-right-radius: 30px;
 }
 
-.chatContainer .contentChat .chatOutcomeContainer {
+.chatContainer .contentChat .chat .chatOutcomeContainer {
     max-width: 50%;
     width: fit-content;
     margin-left: 50%;
-    float: right;
+    align-self: flex-end;
+    /* text-align: end; */
+    /* float: right; */
     justify-content: right;
+    align-items: flex-end;
     padding: 20px 30px 20px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     border-top-left-radius: 30px;
     background: #010812;
+}
+.chatContainer .contentChat .chat .chatOutcomeContainer p {
+    text-align: end;
 }
 .chatContainer .contentChat .chatOutcomeContainer .chatOutcome p {
     color: white;

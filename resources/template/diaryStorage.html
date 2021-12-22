@@ -12,6 +12,9 @@
         function openChat(url) {
             window.location = url;
         }
+        function toggleResponsive(){
+                document.getElementById("navigationDrawer").classList.toggle("active");
+        }
     </script>
 </head>
 
@@ -21,18 +24,18 @@
     </button>
     <header>
         <div class="app-bar">
-            <div class="app-bar__menu">
-                <button id="hamburgerButton">☰</button>
+            <div class="app-bar__menu" id="hamburger-button">
+                <button id="hamburgerButton" onclick="toggleResponsive()">☰</button>
             </div>
             <div class="app-bar__brand">
                 <img src="../../public/img/pacify-logo.png" alt="Logo Pacify">
             </div>
             <nav id="navigationDrawer" class="app-bar__navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#newsContainer">Article</a></li>
-                    <li><a href="#">Diary</a></li>
-                    <button class="loginButton">Login</button>
+                <ul id="main-nav">
+                    <li><a href="index.html" onclick="toggleResponsive()">Home</a></li>
+                    <li><a href="index.html#newsContainer" onclick="toggleResponsive()">Article</a></li>
+                    <li><a href="#" onclick="toggleResponsive()">Diary</a></li>
+                    <li><button class="loginButton" onclick="toggleResponsive()">Login</button></li>
                     <!-- <li><a href="#" id="loginButton" class="loginButton">Login</a></li> -->
                 </ul>
             </nav>

@@ -57,13 +57,16 @@ body {
 .app-bar .app-bar__navigation {
     position: absolute;
     top: 50px;
-    left: -180px;
-    width: 150px;
-    transition: all 0.3s;
+    left: -100%;
+    /* width: 100%; */
+    transition: all 0.7s;
     padding: 8px;
     background-color: white;
     overflow: hidden;
 }
+/* .app-bar .app-bar__navigation .main-nav {
+    display: none;
+} */
 
 .app-bar .app-bar__navigation.open {
     left: 0;
@@ -82,7 +85,6 @@ body {
     height: 44px;
 }
 
-/* NEW */
 /* JUMBOTRON */
 .jumbotron {
     background: linear-gradient(
