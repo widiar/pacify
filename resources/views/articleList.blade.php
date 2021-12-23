@@ -1,6 +1,6 @@
 @extends('template.master')
 
-@section('title', 'Diary Post')
+@section('title', 'Article List')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/articleList.css') }}" />
@@ -14,7 +14,7 @@
         @foreach ($articles as $article)
         <div class="article">
             <a href="{{ route('article', $article->slug) }}">
-                <img src="{{ Storage::url('article/') . $article->gambar }}" alt="Article Image">
+                <img src="{{ json_decode($article->gambar)->url  }}" alt="Article Image">
                 <div class="articleContent">
                     <h2>{{ $article->judul }}</h2>
                     <p class="date">{{ date('j M Y', strtotime($article->updated_at)) }}</p>
