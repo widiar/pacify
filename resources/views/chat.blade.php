@@ -5,6 +5,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/chat.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/responsive-chat.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/loader.css') }}" />
 
 <style>
     .room,
@@ -18,6 +19,13 @@
 <main>
     <div class="emptysChat" style="text-align: center">
         <h1 class="getStartedHeading">One click away from starting to have a conversation with others!</h1>
+        <div class="onsearch" style="display: none;">
+            <h2 style="color: gray">Searching...</h2>
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
         <button class="getStartedButton btn-chat">Get Started</button>
     </div>
     <div class="notemptychat">
@@ -43,6 +51,13 @@
                 <h3 class="chatEmpty" style="margin-bottom: 50px;">Whoops! click any chat to begin. Or Start New Chat
                 </h3>
                 <div style="text-align: center">
+                    <div class="onsearch" style="display: none;">
+                        <h2 style="color: gray">Searching...</h2>
+                        <div class="lds-ripple">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
                     <button class="getStartedButton btn-chat" style="margin-bottom: 200px;">Start Chat</button>
                 </div>
             </div>
@@ -73,9 +88,12 @@
 <script>
     const urlSearch = `{{ route('chat.search') }}`
     const cRoom = `{{ $hitungRoom }}`
+    const urlVerif = `{{ route('verif.chat', '#nama') }}`
     let cari
+    let oldNameRoom = ''
 
     const listen = (idRoom) => {
+        window.Echo.leave(`chat.${oldNameRoom}`)
         window.Echo.private(`chat.${idRoom}`).listen('ChatCreated', (res) => {
             const html = `
                 <div class="chatIncomeContainer">
@@ -121,9 +139,78 @@
             }
         })
     }
+
+    const verifRoom = (namaRoom) => {
+        const ul = urlVerif.replace('#nama', namaRoom)
+        $.ajax({
+            url: ul,
+            method: 'POST',
+            success: (res) => {
+                console.log(res.status)
+                if(res.status == 'success') {
+                    const html = `
+                    <div class="contact">
+                        <img src="{{ asset('img/contact-1.jpg') }}" alt="Profile Picture Chat">
+                        <div class="contactPersonal">
+                            <h2 class="room" data-nama="${res.room.nama}">${res.room.nama}</h2>
+                        </div>
+                    </div>
+                    `
+                    $('.listContacts').append(html)
+                    $('.notemptychat').show()
+                    $('.emptysChat').hide()
+                    $('.onsearch').hide()
+                } else {
+                    initSearch(null)
+                }
+            },
+            error: (res) => {
+                console.log(res.responseJSON)
+            }
+        })
+    }
+    
+    const initSearch = (namaRoom) => {
+        $.ajax({
+            url: urlSearch,
+            method: 'POST',
+            data: {
+                room: namaRoom
+            },
+            success: (res) => {
+                if(res.room.user2 != undefined || res.room.user2 != null) {
+                    clearInterval(cari)
+                    verifRoom(res.room.nama)
+                } 
+            },
+            error: (res) => {
+                console.log(res.responseJSON)
+            }
+        })
+    }
     $('.btn-chat').click(function(e){
         console.log("Searching...")
-        cari = setInterval(search, 3000)
+        $(this).hide(100)
+        $('.onsearch').show(100)
+        // cari = setInterval(search, 3000)
+        setTimeout(() => {
+            $.ajax({
+                url: urlSearch,
+                method: 'POST',
+                success: (res) => {
+                    if(res.room.user2 == undefined || res.room.user2 == null) {
+                        cari = setInterval(initSearch, 3000, res.room.nama)
+                    } else {
+                        verifRoom(res.room.nama)
+                    }
+                },
+                error: (res) => {
+                    console.log(res.responseJSON)
+                }
+            })
+        }, 3000);
+        // cari = setInterval(initSearch, 3000)
+
         $(this).attr('disabled', 'disabled')
     })
 
@@ -158,6 +245,7 @@
                     $('.chat').append(html)
                 })
                 listen(res.room.nama)
+                oldNameRoom = res.room.nama
                 if(res.room.is_disabled == true) {
                     $('#msg').attr('disabled', 'disabled')
                     $('#msg').attr('placeholder', 'You can\'t chat with this person again.')

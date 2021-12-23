@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('chat.{roomName}', function ($user, $roomName) {
     // return (int) $user->id === (int) $id;
     $room = Room::where('nama', $roomName)->first();
-    if ($user->id == $room->user1 || $user->id == $room->user2) return true;
+    if (($user->id == $room->user1 || $user->id == $room->user2) && strcmp($roomName, $room->nama) == 0) return true;
     return false;
 });

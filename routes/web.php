@@ -30,17 +30,21 @@ Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('article/{slug}', [SiteController::class, 'article'])->name('article');
 Route::get('articles', [SiteController::class, 'articleList'])->name('articles');
 
-Route::get('diaries', [SiteController::class, 'diary'])->name('diaries');
 
-Route::post('diary', [SiteController::class, 'diaryPost'])->name('diary.post');
+Route::middleware(['auth'])->group(function () {
+    Route::get('diaries', [SiteController::class, 'diary'])->name('diaries');
 
-Route::get('diary/{id}', [SiteController::class, 'diaryUser'])->name('diary');
+    Route::post('diary', [SiteController::class, 'diaryPost'])->name('diary.post');
 
-Route::get('chat', [ChatController::class, 'index'])->name('chat');
-Route::post('findChat', [ChatController::class, 'search'])->name('chat.search');
-Route::post('showChat', [ChatController::class, 'show'])->name('show.chat');
-Route::post('listenChat', [ChatController::class, 'listen'])->name('listen.chat');
-Route::post('postChat', [ChatController::class, 'post'])->name('post.chat');
+    Route::get('diary/{id}', [SiteController::class, 'diaryUser'])->name('diary');
+
+    Route::get('chat', [ChatController::class, 'index'])->name('chat');
+    Route::post('findChat', [ChatController::class, 'search'])->name('chat.search');
+    Route::post('showChat', [ChatController::class, 'show'])->name('show.chat');
+    Route::post('listenChat', [ChatController::class, 'listen'])->name('listen.chat');
+    Route::post('postChat', [ChatController::class, 'post'])->name('post.chat');
+    Route::post('verifChat/{nama}', [ChatController::class, 'verif'])->name('verif.chat');
+});
 
 
 //admin

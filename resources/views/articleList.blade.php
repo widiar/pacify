@@ -1,6 +1,6 @@
 @extends('template.master')
 
-@section('title', 'Article List')
+@section('title', 'Articles')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/articleList.css') }}" />
