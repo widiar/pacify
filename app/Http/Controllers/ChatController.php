@@ -18,6 +18,7 @@ class ChatController extends Controller
             return redirect()->route('home')->with('login', 'Perlu Login');
         }
         $id = Auth::user()->id;
+        Room::where('user1', $id)->where('user2', NULL)->delete();
         $rooms = Room::where('user1', $id)->orWhere('user2', $id)->get();
         $rooms->load(['chat' => function ($q) {
             $q->orderBy('updated_at', 'desc');
@@ -42,6 +43,7 @@ class ChatController extends Controller
         return view('chat', compact('rooms', 'hitungRoom'));
     }
 
+    /*
     public function search()
     {
         try {
@@ -112,6 +114,58 @@ class ChatController extends Controller
                     'status' => 'Not Found'
                 ]);
             }
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage(), 500);
+        }
+    }
+    */
+
+    public function search(Request $request)
+    {
+        try {
+            $user = User::find(Auth::user()->id);
+            $param = $request->room;
+            $room = Room::where('user2', NULL)->where('user1', '!=', $user->id)->first();
+            if ($room && !isset($param)) {
+                $room->user2 = $user->id;
+                $room->save();
+                return response()->json([
+                    'room' => $room
+                ]);
+            }
+            $cekRoom = Room::where('user1', $user->id)->where('user2', NULL)->first();
+            if (!isset($param) && !$cekRoom) {
+                $chat = Room::create([
+                    'nama' => strtoupper(uniqid()),
+                    'user1' => $user->id,
+                ]);
+            } else {
+                $chat = Room::where('nama', $param)->first();
+            }
+            return response()->json([
+                'room' => $chat
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage(), 500);
+        }
+    }
+
+    public function verif($nama)
+    {
+        try {
+            $cekRoom = Room::where('nama', $nama)->first();
+            $user = User::find(Auth::user()->id);
+            if ($cekRoom->user2 != NULL) {
+                if ($cekRoom->user1 == $user->id || $cekRoom->user2 == $user->id) {
+                    return response()->json([
+                        'status' => 'success',
+                        'room' => $cekRoom
+                    ]);
+                }
+            }
+            return response()->json([
+                'status' => 'deny'
+            ]);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage(), 500);
         }
