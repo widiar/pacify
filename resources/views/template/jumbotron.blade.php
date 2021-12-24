@@ -8,6 +8,8 @@
             Pacify is an app that helps you go through all of your
             bad days.
         </p>
-        <button>Explore</button>
+        <a href="#articles">
+            <button style="cursor: pointer">Explore</button>
+        </a>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="newsContainer">
+<div class="newsContainer" id="articles">
     <div class="headingNews">
         <h3>What's New?</h3>
         <p>
