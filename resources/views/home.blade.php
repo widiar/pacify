@@ -53,7 +53,9 @@
                 all just for you in case you need it. See how far you’ve
                 come in just one click.
             </p>
-            <button>Explore</button>
+            <a href="{{ route('diaries') }}">
+                <button style="cursor: pointer">Explore</button>
+            </a>
         </div>
     </div>
 </main>
