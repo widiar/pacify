@@ -31,10 +31,10 @@ Route::get('article/{slug}', [SiteController::class, 'article'])->name('article'
 Route::get('articles', [SiteController::class, 'articleList'])->name('articles');
 
 
+Route::post('diary', [SiteController::class, 'diaryPost'])->name('diary.post');
 Route::middleware(['auth'])->group(function () {
     Route::get('diaries', [SiteController::class, 'diary'])->name('diaries');
 
-    Route::post('diary', [SiteController::class, 'diaryPost'])->name('diary.post');
 
     Route::get('diary/{id}', [SiteController::class, 'diaryUser'])->name('diary');
 
